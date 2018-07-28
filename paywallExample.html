@@ -16,18 +16,20 @@
 <!-- this is a modal to prompt the user to pay their monies-->
 
 <div class="prompt-modal prompt-text">
+    <div class="prompt-enclose">
         <div class="prompt-title">
             Buy The Expanded Level 2 DLC To Continue Playing!
         </div>
         <button data-iziModal-close class="icon-close">x</button>
         <div class="prompt-body">
-        <p>The intent is to provide players with a sense of pride and accomplishment! <br><br> Buy more levels, or... play this level <br>
+        <p style="font-size: 14px;s">The intent is to provide players with a sense of pride and accomplishment! <br> Buy more levels, or... play this level <br>
         for an estimated 4000 hours to gain enough coins to progress!</p>
             <div class="sub-body-text">
             Use FA Studios virtual currency coins to purchase levels, giving you a selection of new <br>
             FA studios heroes, levels, sprite designs and other valuable resources to continue your FA Studio hero's journey. 
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -117,6 +119,34 @@
 
 <style>
 
+    .prompt-enclose {
+        padding: 30px;
+        background-color: #92CD41;
+        box-shadow: inset -4px -4px 0px 0px #4AA52E;s
+    }
+
+    .icon-close {
+        outline: none;
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 25px;
+    width: 25px;
+    font-size: 16px;
+    background-color:#F2C409;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    }
+
+    .prompt-text{
+        max-width: 800px !important;
+        font-size: 25px;
+    }
+
+    .prompt-title, .prompt-body {
+        max-width: 775px;
+    }
     .code-prompt1 {
         position: absolute;
         max-width: 700px;
@@ -341,6 +371,15 @@ hr {
 
         </style>    
 
+<script>
+        $(".prompt-modal").iziModal({
+    overlayClose: false,
+    overlayColor: 'rgba(0, 0, 0, 0.6)'
+    });
+
+
+    $('.prompt-modal').iziModal('open');
+</script>
 
 </body>
 </html>
