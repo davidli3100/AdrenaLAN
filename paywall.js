@@ -3,7 +3,6 @@
  */
 
 // we assume this script is within the phaser script
-
 sprite.checkWorldBounds = true;
 
 playerSprite.events.onOutOfBounds.add(levelOnePaywall, this);
@@ -21,3 +20,5 @@ $(".prompt-modal").iziModal({
 function levelOnePaywall() {
     $('.prompt-modal').iziModal('open');
 }
+
+
