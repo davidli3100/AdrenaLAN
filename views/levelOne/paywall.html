@@ -57,7 +57,6 @@
     </div>
 
 
-<<<<<<< HEAD
   <!-- code unlock modal -->
   <div class="code-unlock-modal">
     <div class="unlock-enclose">
@@ -72,32 +71,37 @@
         </p>
         <div class="code-input-div">
           <div style="margin-bottom: 30px" >Type The Code Below:</div>
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 5404070... tes
           <input id="code-input" name="code" placeholder="Insert Code here..." type="text">
           <button id="checkCodeBtn" class="eightbit-btn code-submit" onclick="checkCode()"> SUBMIT </button>
-=======
-    <!-- code unlock modal -->
-    <div class="code-unlock-modal">
-      <div class="unlock-enclose">
-        <div class="unlock-title">
-          Enter a Code To Unlock Level 2!
         </div>
-        <button data-iziModal-close class="icon-close">x</button>
-        <div class="unlock-body">
-          <p style="font-size: 14px;">The code will be uncovered when the second level DLC is purchased!
-            <br>
-            <span class="blurred-code">BATTLEFRONT</span>
-          </p>
-          <div class="code-input-div">
-            <span>Type The Code Below:</span>
-            <input id="code-input" name="code" placeholder="Insert Code here..." type="text">
-            <button id="checkCodeBtn" class="eightbit-btn code-submit" onclick="checkCode()" > SUBMIT </button>
-          </div>
->>>>>>> parent of 40d3179... remap to level 2
-        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- payment modal -->
+  <div class="payment-modal">
+      <div class="payment-enclose">
+      <div class="heading-text">
+        Pay Now To Unlock The Next Level!
+      </div>
+      <button data-iziModal-close class="icon-close">x</button>
+  
+      <div class="paypal-image">
+        <!-- PayPal Logo -->
+        <table border="0" cellpadding="10" cellspacing="0" align="center">
+          <tr>
+            <td align="center"></td>
+          </tr>
+          <tr>
+            <td align="center">
+              <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_payments_by_pp_2line.png" border="0" alt="Payments by PayPal">
+              </a>
+            </td>
+          </tr>
+        </table>
+        <!-- PayPal Logo -->
+      </div>
       </div>
     </div>
 
@@ -182,6 +186,10 @@ $(".code-unlock-modal").iziModal({
     overlayColor: 'rgba(0, 0, 0, 0.6)'
 });
 
+    $(".payment-modal").iziModal({
+      overlayClose: false,
+      overlayColor: 'rgba(0, 0, 0, 0.6)'
+    });
 
 $('.prompt-modal').iziModal('open');
 
@@ -196,6 +204,9 @@ function codeCorrect() {
 var incorrectCode = document.getElementById('#codeInput').value;
 var codeBool = false;
 
+function buyCoins() {
+      $('.payment-modal').iziModal('open');
+    }s
 
 toastr.options = {
     "closeButton": true,
@@ -227,58 +238,28 @@ toastr.options = {
     }
 });
 
-  $( "#checkCodeBtn" ).click(function() {
-    if ($('#code-input').val == "BATTLEFRONT") {
-        codeCorrect();s
-    }
-<<<<<<< HEAD
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 5404070... tes
-    $("#code-input").on('keyup', function (e) {
-      if (e.keyCode == 13) {
-        if ($('#code-input').val == "BATTLEFRONT") {
-          codeCorrect();
-        } else if ($('#code-input').val != "BATTLEFRONT") {
-          codeIncorrect($('#code-input').val)
-        }
+ function checkCode(codeInputVal) {
+      codeInputVal = $("#code-input").val();
+      if (codeInputVal == "BATTLEFRONT"){
+        codeBool = true;
+        codeCorrect() 
+      } else {
+        codeBool = false;
+        codeIncorrect(codeInputVal);
       }
-    });
+    }
 
     $("#checkCodeBtn").click(function () {
       if ($('#code-input').val == "BATTLEFRONT") {
         codeCorrect();
         
       } else if ($('#code-input').val != "BATTLEFRONT") {
-=======
-    else if ($('#code-input').val != "BATTLEFRONTs") {
->>>>>>> parent of 40d3179... remap to level 2
         codeIncorrect($('#code-input').val)
-    }s
+    }
   });
 
-function checkCode(codeInputVal) {
-    codeInputVal = $("#code-input").val();
-    if (codeInputVal == "BATTLEFRONT") {
-        codeBool = true;
-        codeCorrect()
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 5404070... tes
-      } else {
-        codeBool = false;
-        codeIncorrect(codeInputVal);
-      }
-    }
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 5404070... tes
 
     function returnToFirstPay() {
       $('#code-unlock-modal').iziModal('hide');
@@ -286,95 +267,77 @@ function checkCode(codeInputVal) {
 
     function codeCorrect() {
       toastr.success("Great job! You've entered the correct  code. \n Sending you to the next level...", 'Success!');
-      delay(3500);
       $('#code-unlock-modal').iziModal('hide');
-      delay(2000);
       window.location.href = "/levelTwo";
-=======
-    } else {
-        codeBool = false;
-        codeIncorrect(codeInputVal);
->>>>>>> parent of 40d3179... remap to level 2
-    }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    function codeIncorrect(incorrectCode) {
-=======
-    function codeIncorrect(inscorrectCode) {
->>>>>>> parent of 5404070... tes
-=======
-function codeCorrect() {
-    toastr.success("Great job! You've entered the correct  code. \n Sending you to the next level...", 'Success!');
-    delay(1000);
-    $('.code-unlock-modal').iziModal('hide');
-    window.location.href="/levelTwo";
-}
->>>>>>> parent of 40d3179... remap to level 2
 
 function codeIncorrect(incorrectCode) {
 
-<<<<<<< HEAD
-    function exitToMain() {
-      window.location.href = "/levelOne";
-    }
-    
-<<<<<<< HEAD
-
-      $(".prompt-modal").iziModal({
-        overlayClose: false,
-        overlayColor: 'rgba(0, 0, 0, 0.6)'
-      });
-=======
->>>>>>> parent of 5404070... tes
-=======
     // init alert
     console.log(incorrectCode);
     toastr.error("Oops! The code " + incorrectCode + " is incorrect! Please try again...", 'Uh oh');
 }
->>>>>>> parent of 40d3179... remap to level 2
+
 
 function exitToMain() {
     window.location.href="/levelOne";
 }
 
 </script>
-    <!--   <script>
-      $(".prompt-modal").iziModal({
-        overlayClose: false,
-        overlayColor: 'rgba(0, 0, 0, 0.6)'
-      });
 
-      $(".code-unlock-modal").iziModal({
-        overlayClose: false,
-        overlayColor: 'rgba(0, 0, 0, 0.6)'
-      });
-
-
-      $('.prompt-modal').iziModal('open');
-
-      function loadCodeUnlock() {
-        $('.code-unlock-modal').iziModal('open');
-      }
-
-      function codeCorrect() {
-        $('.code.unlock-modal').iziModal('hide');
-      }
-
-      var incorrectCode = document.getElementById('#codeInput').value;
-      const popupAlert = document.getElementById('.popupAlert')
-
-      function codeIncorrect(incorrectCode) {
-
-        // init alert
-        console.log(incorrectCode)
-        popupAlert.innerHTML("The Code " + incorrectCode + "is incorrect. Please try again. ")
-
-      }
-    </script> -->
 
     <style>
+
+    .payment-modal {
+      background-color: #E76E55;
+      box-shadow: inset -4px -4px 0px 0px #8c2022;
+    }
+
+          #checkCodeBtn {
+      background-color:#F2C409;
+      box-shadow: inset -4px -4px 0px 0px #E59400
+    }
+
+    .unlock-enclose {
+      margin-top: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    }
+
+    #code-input::placeholder {
+      color: #fff;
+    }
+
+    #code-input {
+      color: #fff;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    width: auto;
+    min-width: 50%;
+    font-size: 14px;
+    line-height: 3em;
+    font-family: Roboto, Arial, sans-serif;
+    border-bottom: 3px solid #fff;
+    background-color: transparent;
+    }
+
+        .code-unlock-modal {
+      background-color: #529ff9;
+      box-shadow: inset -4px -4px 0px 0px #006eff;
+    }
+
+    .payment-enclose {
+      padding: 30px;
+    }
+    
+    .heading-text, .unlock-enclose {
+      font-family: 'Press Start 2P', cursive;
+      color: white;
+    }
+
       .code-submit {
         font-size: 14px !important;
         margin: 30px auto !important;
