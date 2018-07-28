@@ -219,7 +219,9 @@ toastr.options = {
     function codeCorrect() {
       toastr.success("Great job! You've entered the correct  code. \n Sending you to the next level...", 'Success!');
       $('#code-unlock-modal').iziModal('hide');
-      window.location.href = "/levelTwo";
+      iframe = window.parent.document.querySelector('iframe');
+      iframe.setAttribute('src', '/levelTwo');
+      iframe.setAttribute('class', 'game-container2');
 }
 
 
