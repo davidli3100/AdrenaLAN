@@ -251,24 +251,12 @@ toastr.options = {
       }
     }
 
-<<<<<<< Updated upstream
     $("#checkCodeBtn").click(function () {
       if ($('#code-input').val == "BATTLEFRONT") {
         codeCorrect();
         
       } else if ($('#code-input').val != "BATTLEFRONT") {
         codeIncorrect($('#code-input').val)
-=======
-    function codeCorrect() {
-      toastr.success("Great job! You've entered the correct code. \n Sending you to the next level...", 'Success!');
-      setTimeout(1000);
-      $('#code-unlock-modal').iziModal('hide');
-      realWindow = window.parent;
-      iframe = realWindow.document.querySelector('iframe');
-      iframe.setAttribute('src', '/levelTwo');
-      iframe.setAttribute('class', 'game-container2');
-
->>>>>>> Stashed changes
     }
   });
 
