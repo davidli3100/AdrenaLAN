@@ -36,11 +36,11 @@ EA has been criticised many times for their anti-consumer practices, including p
 
 
 ## TO-DO
-* [] Level 2
-  * [] Hacking Minigame
-* [] Level 3
-  * [] Hacking Minigame
-* [] Intro menu
-* [] Sound Effects
-* [] Tutorial prompts
-* [] Background Music
+- [ ] Level 2
+  - [ ] Hacking Minigame
+- [ ] Level 3
+  - [ ] Hacking Minigame
+- [ ] Intro menu
+- [ ] Sound Effects
+- [ ] Tutorial prompts
+- [ ] Background Music
