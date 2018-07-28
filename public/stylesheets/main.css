@@ -4,5 +4,19 @@ body {
 	background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.game-container {
+	margin: auto;
+	width: 800px;
+	height: 604px;
+	display: block;
+}
+
+.game-container2 {
+	margin: auto;
+	width: 340px;
+	height: 340px;
+	display: block;
+}
+
 
 
