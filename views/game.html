@@ -36,9 +36,8 @@
     }
 
     function create() {
-        // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
-        // Phaser's cache (i.e. the name you used in preload)
-        const tileset = map.addTilesetImage("roguelikeSheet_transparent", "tiles");
+        const map       = this.make.tilemap({ key: "map" }),
+              tileset   = map.addTilesetImage("background", "tiles");
 
         // Parameters: layer name (or index) from Tiled, tileset, x, y
         const grassLayer = map.createStaticLayer("Grass", tileset, 0, 0),
