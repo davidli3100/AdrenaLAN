@@ -89,5 +89,6 @@ function codeIncorrect(incorrectCode) {
     toastr.error("Oops! The code " + incorrectCode + " is incorrect! Please try again...", 'Uh oh');
 }
 
-codeCorrect();
-codeIncorrect(foo);
+function exitToMain() {
+    window.location.href="/levelOne";
+}

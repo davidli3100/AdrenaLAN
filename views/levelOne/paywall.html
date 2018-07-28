@@ -38,10 +38,10 @@
 
     <div class="slider-container modal paywall1">
       <div class="slide-single">
-        <a href="javascript:void(0)" class="eightbit-btn eightbit-btn--proceed">Replay Level 1</a>
+        <a onclick="exitToMain()" class="eightbit-btn eightbit-btn--proceed">Replay Level 1</a>
       </div>
       <div class="slide-single">
-        <a href="javascript:void(0)" class="eightbit-btn">Buy More Coins</a>
+        <a onclick="buyCoins()" class="eightbit-btn">Buy More Coins</a>
       </div>
       <div class="slide-single">
         <a onclick="loadCodeUnlock()" class="eightbit-btn eightbit-btn--proceed">Enter Unlock Code</a>
@@ -50,7 +50,7 @@
                   <a href="javascript:void(0)" class="eightbit-btn">Level 4</a>
                 </div> -->
       <div class="slide-single">
-        <a data-dismiss="modal" aria-label="Close" class="eightbit-btn eightbit-btn--reset">Exit</a>
+        <a onclick="exitToMain()" data-dismiss="modal" aria-label="Close" class="eightbit-btn eightbit-btn--reset">Exit</a>
       </div>
 
       <div class="slide-marker"></div>
@@ -142,8 +142,107 @@
   crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="firstLevel.js"></script>
+    <script src="/views/levelOne/firstLevel.js" type="text/javascript"></script>
+<script>
 
+  /**
+ * this is to initiate the paywall and next level functions of the routing
+ */
+
+$(".prompt-modal").iziModal({
+    overlayClose: false,
+    overlayColor: 'rgba(0, 0, 0, 0.6)'
+});
+
+$(".code-unlock-modal").iziModal({
+    overlayClose: false,
+    overlayColor: 'rgba(0, 0, 0, 0.6)'
+});
+
+
+$('.prompt-modal').iziModal('open');
+
+function loadCodeUnlock() {
+    $('.code-unlock-modal').iziModal('open');
+}
+
+function codeCorrect() {
+    $('.code.unlock-modal').iziModal('hide');
+}
+
+var incorrectCode = document.getElementById('#codeInput').value;
+var codeBool = false;
+
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-bottom-left",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+
+
+  $("#code-input").on('keyup', function (e) {
+    if (e.keyCode == 13) {
+        if ($('#code-input').val == "BATTLEFRONT") {
+            codeCorrect();
+        }
+        else if ($('#code-input').val != "BATTLEFRONT") {
+            codeIncorrect($('#code-input').val)
+        }
+    }
+});
+
+  $( "#checkCodeBtn" ).click(function() {
+    if ($('#code-input').val == "BATTLEFRONT") {
+        codeCorrect();s
+    }
+    else if ($('#code-input').val != "BATTLEFRONTs") {
+        codeIncorrect($('#code-input').val)
+    }s
+  });
+
+function checkCode(codeInputVal) {
+    codeInputVal = $("#code-input").val();
+    if (codeInputVal == "BATTLEFRONT") {
+        codeBool = true;
+        codeCorrect()
+    } else {
+        codeBool = false;
+        codeIncorrect(codeInputVal);
+    }
+}
+
+function codeCorrect() {
+    toastr.success("Great job! You've entered the correct  code. \n Sending you to the next level...", 'Success!');
+    delay(1000);
+    $('.code-unlock-modal').iziModal('hide');
+    window.location.href="/levelTwo";
+}
+
+function codeIncorrect(incorrectCode) {
+
+    // init alert
+    console.log(incorrectCode);
+    toastr.error("Oops! The code " + incorrectCode + " is incorrect! Please try again...", 'Uh oh');
+}
+
+function exitToMain() {
+    window.location.href="/levelOne";
+}
+
+</script>
     <!--   <script>
       $(".prompt-modal").iziModal({
         overlayClose: false,
@@ -189,7 +288,7 @@
         padding: 30px;
         background-color: #92CD41;
         box-shadow: inset -4px -4px 0px 0px #4AA52E;
-        s
+        
       }
 
       .icon-close {
