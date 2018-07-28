@@ -1,87 +1,114 @@
 <!DOCTYPE html>
-  <html lang="en">
+<html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Modal Tester Page</title>
-    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Yrsa|Press+Start+2P" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Modal Tester Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Yrsa|Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
 
-  <body>
+<body>
 
 
-    <!-- this is a modal to prompt the user to pay their monies-->
+  <!-- this is a modal to prompt the user to pay their monies-->
 
-    <div class="prompt-modal prompt-text">
-      <div class="prompt-enclose">
-        <div class="prompt-title">
-          Buy The Expanded Level 2 DLC To Continue Playing!
-        </div>
-        <button data-iziModal-close class="icon-close">x</button>
-        <div class="prompt-body">
-          <p style="font-size: 14px;">The intent is to provide players with a sense of pride and accomplishment!
-            <br> Buy more levels, or... play this level
-            <br> for an estimated 4000 hours to gain enough coins to progress!</p>
-          <div class="sub-body-text">
-            Use FA Studios virtual currency coins to purchase levels, giving you a selection of new
-            <br> FA studios heroes, levels, sprite designs and other valuable resources to continue your FA Studio hero's journey.
-          </div>
+  <div class="prompt-modal prompt-text">
+    <div class="prompt-enclose">
+      <div class="prompt-title">
+        Buy The Expanded Level 2 DLC To Continue Playing!
+      </div>
+      <button data-iziModal-close class="icon-close">x</button>
+      <div class="prompt-body">
+        <p style="font-size: 14px;">The intent is to provide players with a sense of pride and accomplishment!
+          <br> Buy more levels, or... play this level
+          <br> for an estimated 4000 hours to gain enough coins to progress!</p>
+        <div class="sub-body-text">
+          Use FA Studios virtual currency coins to purchase levels, giving you a selection of new
+          <br> FA studios heroes, levels, sprite designs and other valuable resources to continue your FA Studio hero's journey.
         </div>
       </div>
     </div>
+  </div>
 
 
-    <div class="slider-container modal paywall1">
-      <div class="slide-single">
-        <a onclick="exitToMain()" class="eightbit-btn eightbit-btn--proceed">Replay Level 1</a>
-      </div>
-      <div class="slide-single">
-        <a onclick="buyCoins()" class="eightbit-btn">Buy More Coins</a>
-      </div>
-      <div class="slide-single">
-        <a onclick="loadCodeUnlock()" class="eightbit-btn eightbit-btn--proceed">Enter Unlock Code</a>
-      </div>
-      <!--   <div class="slide-single">
+  <div class="slider-container modal paywall1">
+    <div class="slide-single">
+      <a onclick="exitToMain()" class="eightbit-btn eightbit-btn--proceed">Replay Level 1</a>
+    </div>
+    <div class="slide-single">
+      <a onclick="buyCoins()" class="eightbit-btn">Buy More Coins</a>
+    </div>
+    <div class="slide-single">
+      <a onclick="loadCodeUnlock()" class="eightbit-btn eightbit-btn--proceed">Enter Unlock Code</a>
+    </div>
+    <!--   <div class="slide-single">
                   <a href="javascript:void(0)" class="eightbit-btn">Level 4</a>
                 </div> -->
-      <div class="slide-single">
-        <a onclick="exitToMain()" data-dismiss="modal" aria-label="Close" class="eightbit-btn eightbit-btn--reset">Exit</a>
-      </div>
-
-      <div class="slide-marker"></div>
+    <div class="slide-single">
+      <a onclick="exitToMain()" data-dismiss="modal" aria-label="Close" class="eightbit-btn eightbit-btn--reset">Exit</a>
     </div>
 
+    <div class="slide-marker"></div>
+  </div>
 
-    <!-- code unlock modal -->
-    <div class="code-unlock-modal">
-      <div class="unlock-enclose">
-        <div class="unlock-title">
-          Enter a Code To Unlock Level 2!
-        </div>
-        <button data-iziModal-close class="icon-close">x</button>
-        <div class="unlock-body">
-          <p style="font-size: 14px;">The code will be uncovered when the second level DLC is purchased!
-            <br>
-            <span class="blurred-code">BATTLEFRONT</span>
-          </p>
-          <div class="code-input-div">
-            <span>Type The Code Below:</span>
-            <input id="code-input" name="code" placeholder="Insert Code here..." type="text">
-            <button id="checkCodeBtn" class="eightbit-btn code-submit" onclick="checkCode()" > SUBMIT </button>
-          </div>
+
+  <!-- code unlock modal -->
+  <div class="code-unlock-modal">
+    <div class="unlock-enclose">
+      <div class="unlock-title">
+        Enter a Code To Unlock Level 2!
+      </div>
+      <button data-iziModal-close class="icon-close">x</button>
+      <div class="unlock-body">
+        <p style="font-size: 14px;">The code will be uncovered when the second level DLC is purchased!
+          <br>
+          <span class="blurred-code">BATTLEFRONT</span>
+        </p>
+        <div class="code-input-div">
+          <div style="margin-bottom: 30px" >Type The Code Below:</div>
+          <input id="code-input" name="code" placeholder="Insert Code here..." type="text">
+          <button id="checkCodeBtn" class="eightbit-btn code-submit" onclick="checkCode()"> SUBMIT </button>
         </div>
       </div>
     </div>
+  </div>
+
+
+  <!-- payment modal -->
+  <div class="payment-modal">
+    <div class="payment-enclose">
+    <div class="heading-text">
+      Pay Now To Unlock The Next Level!
+    </div>
+    <button data-iziModal-close class="icon-close">x</button>
+
+    <div class="paypal-image">
+      <!-- PayPal Logo -->
+      <table border="0" cellpadding="10" cellspacing="0" align="center">
+        <tr>
+          <td align="center"></td>
+        </tr>
+        <tr>
+          <td align="center">
+            <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
+              <img src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_payments_by_pp_2line.png" border="0" alt="Payments by PayPal">
+            </a>
+          </td>
+        </tr>
+      </table>
+      <!-- PayPal Logo -->
+    </div>
+    </div>
+  </div>
 
 
 
-
-    <!--   <div class="modal paywall1"s tabindex="-1">
+  <!--   <div class="modal paywall1"s tabindex="-1">
                   <div class="modal-content modal-content-paywall1">
                     <div class="modal-header">
                       <h5 class="modal-title">Purchase More Levels!</h5>
@@ -120,437 +147,478 @@
                         </div>
                         <div class="modal-body"> -->
 
-    <!-- Display the payment button. -
+  <!-- Display the payment button. -
   <input type="image" name="submit" border="0"
   src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
   alt="Buy Now">
   <img alt="" border="0" width="1" height="1"
   src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" > -->
 
-    </div>
-    </div>
-    </div>
-    </div>
+  </div>
+  </div>
+  </div>
+  </div>
 
 
 
-   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"></script> -->
-      <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="/views/levelOne/firstLevel.js" type="text/javascript"></script>
-<script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="/views/levelOne/firstLevel.js" type="text/javascript"></script>
+  <script>
+    /**
+     * this is to initiate the paywall and next level functions of the routing
+     */
 
-  /**
- * this is to initiate the paywall and next level functions of the routing
- */
+        function delay(ms) {
+        var cur_d = new Date();
+        var cur_ticks = cur_d.getTime();
+        var ms_passed = 0;
+        while(ms_passed < ms) {
+            var d = new Date();  // Possible memory leak?
+            var ticks = d.getTime();
+            ms_passed = ticks - cur_ticks;
+            // d = null;  // Prevent memory leak?
+        }
+    }
 
-$(".prompt-modal").iziModal({
-    overlayClose: false,
-    overlayColor: 'rgba(0, 0, 0, 0.6)'
-});
+    $(".prompt-modal").iziModal({
+      overlayClose: false,
+      overlayColor: 'rgba(0, 0, 0, 0.6)'
+    });
 
-$(".code-unlock-modal").iziModal({
-    overlayClose: false,
-    overlayColor: 'rgba(0, 0, 0, 0.6)'
-});
+    $(".code-unlock-modal").iziModal({
+      overlayClose: false,
+      overlayColor: 'rgba(0, 0, 0, 0.6)'
+    });
 
-
-$('.prompt-modal').iziModal('open');
-
-function loadCodeUnlock() {
-    $('.code-unlock-modal').iziModal('open');
-}
-
-function codeCorrect() {
-    $('.code.unlock-modal').iziModal('hide');
-}
-
-var incorrectCode = document.getElementById('#codeInput').value;
-var codeBool = false;
-
-
-toastr.options = {
-    "closeButton": true,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": true,
-    "positionClass": "toast-bottom-left",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-  }
+    $(".payment-modal").iziModal({
+      overlayClose: false,
+      overlayColor: 'rgba(0, 0, 0, 0.6)'
+    });
 
 
-  $("#code-input").on('keyup', function (e) {
-    if (e.keyCode == 13) {
+    $('.prompt-modal').iziModal('open');
+
+    function loadCodeUnlock() {
+      $('.code-unlock-modal').iziModal('open');
+    }
+
+    function codeCorrect() {
+      $('.code.unlock-modal').iziModal('hide');
+    }
+
+    var incorrectCode = document.getElementById('#codeInput').value;
+    var codeBool = false;
+
+
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": true,
+      "positionClass": "toast-bottom-left",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+
+
+    $("#code-input").on('keyup', function (e) {
+      if (e.keyCode == 13) {
         if ($('#code-input').val == "BATTLEFRONT") {
-            codeCorrect();
+          codeCorrect();
+        } else if ($('#code-input').val != "BATTLEFRONT") {
+          codeIncorrect($('#code-input').val)
         }
-        else if ($('#code-input').val != "BATTLEFRONT") {
-            codeIncorrect($('#code-input').val)
-        }
-    }
-});
+      }
+    });
 
-  $( "#checkCodeBtn" ).click(function() {
-    if ($('#code-input').val == "BATTLEFRONT") {
-        codeCorrect();s
-    }
-    else if ($('#code-input').val != "BATTLEFRONTs") {
+    $("#checkCodeBtn").click(function () {
+      if ($('#code-input').val == "BATTLEFRONT") {
+        codeCorrect();
+        s
+      } else if ($('#code-input').val != "BATTLEFRONTs") {
         codeIncorrect($('#code-input').val)
-    }s
-  });
+      }
+      s
+    });
 
-function checkCode(codeInputVal) {
-    codeInputVal = $("#code-input").val();
-    if (codeInputVal == "BATTLEFRONT") {
+    function checkCode(codeInputVal) {
+      codeInputVal = $("#code-input").val();
+      if (codeInputVal == "BATTLEFRONT") {
         codeBool = true;
         codeCorrect()
-    } else {
+      } else {
         codeBool = false;
         codeIncorrect(codeInputVal);
+      }
     }
-}
 
-function codeCorrect() {
-    toastr.success("Great job! You've entered the correct  code. \n Sending you to the next level...", 'Success!');
-    delay(1000);
-    $('.code-unlock-modal').iziModal('hide');
-    window.location.href="/levelTwo";
-}
+    function returnToFirstPay() {
+      $('#code-unlock-modal').iziModal('hide');
+    }
 
-function codeIncorrect(incorrectCode) {
+    function codeCorrect() {
+      toastr.success("Great job! You've entered the correct  code. \n Sending you to the next level...", 'Success!');
+      delay(3500);
+      $('#code-unlock-modal').iziModal('hide');
+      delay(2000);
+      window.location.href = "/levelTwo";
+    }
 
-    // init alert
-    console.log(incorrectCode);
-    toastr.error("Oops! The code " + incorrectCode + " is incorrect! Please try again...", 'Uh oh');
-}
+    function codeIncorrect(inscorrectCode) {
 
-function exitToMain() {
-    window.location.href="/levelOne";
-}
+      // init alert
+      console.log(incorrectCode);
+      toastr.error("Oops! The code " + incorrectCode + " is incorrect! Please try again...", 'Uh oh');
+    }
 
-</script>
-    <!--   <script>
-      $(".prompt-modal").iziModal({
-        overlayClose: false,
-        overlayColor: 'rgba(0, 0, 0, 0.6)'
-      });
+    function exitToMain() {
+      window.location.href = "/levelOne";
+    }
+    
 
-      $(".code-unlock-modal").iziModal({
-        overlayClose: false,
-        overlayColor: 'rgba(0, 0, 0, 0.6)'
-      });
+    function buyCoins() {
+      $('.payment-modal').iziModal('open');
+    }
+  </script>
 
+  <style>
 
-      $('.prompt-modal').iziModal('open');
+    #checkCodeBtn {
+      background-color:#F2C409;
+      box-shadow: inset -4px -4px 0px 0px #E59400
+    }
 
-      function loadCodeUnlock() {
-        $('.code-unlock-modal').iziModal('open');
-      }
+    .unlock-enclose {
+      margin-top: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    }
 
-      function codeCorrect() {
-        $('.code.unlock-modal').iziModal('hide');
-      }
+    #code-input::placeholder {
+      color: #fff;
+    }
 
-      var incorrectCode = document.getElementById('#codeInput').value;
-      const popupAlert = document.getElementById('.popupAlert')
+    #code-input {
+      color: #fff;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    width: auto;
+    min-width: 50%;
+    font-size: 14px;
+    line-height: 3em;
+    font-family: Roboto, Arial, sans-serif;
+    border-bottom: 3px solid #fff;
+    background-color: transparent;
+    }
 
-      function codeIncorrect(incorrectCode) {
+    .code-unlock-modal {
+      background-color: #529ff9;
+      box-shadow: inset -4px -4px 0px 0px #006eff;
+    }
 
-        // init alert
-        console.log(incorrectCode)
-        popupAlert.innerHTML("The Code " + incorrectCode + "is incorrect. Please try again. ")
+    .payment-modal {
+      background-color: #E76E55;
+      box-shadow: inset -4px -4px 0px 0px #8c2022;
+    }
 
-      }
-    </script> -->
+    .payment-enclose {
 
-    <style>
-      .code-submit {
-        font-size: 14px !important;
-        margin: 30px auto !important;
-        padding: 15px !important;
-      }
+      padding: 30px;
+    }
 
-      .prompt-enclose {
-        padding: 30px;
-        background-color: #92CD41;
-        box-shadow: inset -4px -4px 0px 0px #4AA52E;
-        
-      }
+    .heading-text, .unlock-enclose {
+      font-family: 'Press Start 2P', cursive;
+      color: white;
+    }
 
-      .icon-close {
-        outline: none;
-        border: 0;
+    .code-submit {
+      font-size: 14px !important;
+      margin: 30px auto !important;
+      padding: 15px !important;
+    }
+
+    .prompt-enclose {
+      padding: 30px;
+      background-color: #92CD41;
+      box-shadow: inset -4px -4px 0px 0px #4AA52E;
+
+    }
+
+    .icon-close {
+      outline: none;
+      border: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 25px;
+      width: 25px;
+      font-size: 16px;
+      background-color: #F2C409;
+      color: white;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    .prompt-text {
+      max-width: 800px !important;
+      font-size: 25px;
+    }
+
+    .prompt-title,
+    .prompt-body {
+      max-width: 775px;
+    }
+
+    .code-prompt1 {
+      position: absolute;
+      max-width: 700px;
+      left: 1rem;
+    }
+
+    .sub-body-text {
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .blurred-code {
+      -webkit-filter: blur(5px);
+      -moz-filter: blur(5px);
+      -o-filter: blur(5px);
+      -ms-filter: blur(5px);
+      filter: blur(5px);
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+    }
+
+    .modal-content-paywall1 {
+      width: 850px;
+    }
+
+    .slider-container {
+      position: relative;
+    }
+
+    .slide-single {
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    @media screen and (min-width: 600px) {
+      .slide-marker {
         position: absolute;
         top: 0;
         right: 0;
-        height: 25px;
-        width: 25px;
-        font-size: 16px;
-        background-color: #F2C409;
-        color: white;
-        font-family: 'Press Start 2P', cursive;
+        width: 60px;
+        height: 60px;
+        background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/70422/spaceship.png") no-repeat center center;
+        background-size: contain;
+        transition: top 0.25s ease-in-out;
+        margin: -30px 0 0;
+        top: 230px;
       }
-
-      .prompt-text {
-        max-width: 800px !important;
-        font-size: 25px;
-      }
-
-      .prompt-title,
-      .prompt-body {
-        max-width: 775px;
-      }
-
-      .code-prompt1 {
-        position: absolute;
-        max-width: 700px;
-        left: 1rem;
-      }
-
-      .sub-body-text {
-        font-size: 12px;
-        font-weight: 300;
-      }
-
-      .blurred-code {
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
-        filter: blur(5px);
-        width: 100px;
-        height: 100px;
-        background-color: #ccc;
-      }
-
-      .modal-content-paywall1 {
-        width: 850px;
-      }
-
-      .slider-container {
-        position: relative;
-      }
-
-      .slide-single {
-        padding: 20px;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      @media screen and (min-width: 600px) {
-        .slide-marker {
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 60px;
-          height: 60px;
-          background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/70422/spaceship.png") no-repeat center center;
-          background-size: contain;
-          transition: top 0.25s ease-in-out;
-          margin: -30px 0 0;
-          top: 230px;
-        }
-        .slide-marker:before,
-        .slide-marker:after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          right: 30px;
-          width: 10px;
-          height: 4px;
-          margin: -2px 0 0;
-          background: white;
-          -webkit-transform: translateX(0);
-          transform: translateX(0);
-          z-index: -1;
-        }
-        .slide-marker:after {
-          right: 10px;
-        }
-      }
-
-      .slide-single:hover+.slide-marker {
-        top: 470px;
-      }
-
-      .slide-single:hover+.slide-single+.slide-marker {
-        top: 350px;
-      }
-
-      .slide-single:hover+.slide-single+.slide-single+.slide-marker {
-        top: 210px;
-      }
-
-      .slide-single:hover+.slide-single+.slide-single+.slide-single+.slide-marker {
-        top: 60px;
-      }
-
-      .slide-single:hover+.slide-single+.slide-single+.slide-single+.slide-single+.slide-marker {
-        top: 60px;
-      }
-
-      .slide-single:active~.slide-marker:before,
-      .slide-single:active~.slide-marker:after {
-        transition: -webkit-transform 0.25s ease-in-out;
-        transition: transform 0.25s ease-in-out;
-        transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
-        -webkit-transform: translateX(-50vw);
-        transform: translateX(-50vw);
-      }
-
-      html {
-        min-height: 100%;
-        background: url(http://i.imgur.com/xChy58V.png) no-repeat center center;
-        background-size: cover;
-      }
-
-      body {
-        font-family: sans-serif;
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 30px;
-        font-family: 'Maven Pro', sans-serif;
-        text-align: center;
-      }
-
-      h1 {
-        font-size: 2.8rem;
-      }
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      h1,
-      h2 {
-        font-family: 'Yrsa', cursive;
-      }
-
-      p {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-      }
-
-      hr {
-        margin: 40px auto;
-        max-width: 100px;
-        display: block;
-        height: 1px;
-        border: 0;
-        border-top: 1px solid #ccc;
-        padding: 0;
-      }
-
-      .prompt-text {
-        font-family: 'Press Start 2P', cursive;
-        display: none;
-      }
-
-      .pen-intro {
-        text-align: center;
-      }
-
-      .eightbit-btn {
-        background: #92CD41;
-        display: block;
-        position: relative;
-        text-align: center;
-        font-size: 30px;
-        padding: 20px;
-        font-family: 'Press Start 2P', cursive;
-        text-decoration: none;
-        color: white;
-        box-shadow: inset -4px -4px 0px 0px #4AA52E;
-      }
-
-      .eightbit-btn:hover,
-      .eightbit-btn:focus {
-        background: #76c442;
-        box-shadow: inset -6px -6px 0px 0px #4AA52E;
-      }
-
-      .eightbit-btn:active {
-        box-shadow: inset 4px 4px 0px 0px #4AA52E;
-      }
-
-      .eightbit-btn:before,
-      .eightbit-btn:after {
+      .slide-marker:before,
+      .slide-marker:after {
         content: '';
         position: absolute;
-        width: 100%;
-        height: 100%;
-        box-sizing: content-box;
+        top: 50%;
+        right: 30px;
+        width: 10px;
+        height: 4px;
+        margin: -2px 0 0;
+        background: white;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        z-index: -1;
       }
-
-      .eightbit-btn:before {
-        top: -6px;
-        left: 0;
-        border-top: 6px black solid;
-        border-bottom: 6px black solid;
+      .slide-marker:after {
+        right: 10px;
       }
+    }
 
-      .eightbit-btn:after {
-        left: -6px;
-        top: 0;
-        border-left: 6px black solid;
-        border-right: 6px black solid;
-      }
+    .slide-single:hover+.slide-marker {
+      top: 470px;
+    }
 
-      .eightbit-btn--reset {
-        background: #E76E55;
-        box-shadow: inset -4px -4px 0px 0px #8C2022;
-      }
+    .slide-single:hover+.slide-single+.slide-marker {
+      top: 350px;
+    }
 
-      .eightbit-btn--reset:hover,
-      .eightbit-btn--reset:focus {
-        background: #CE372B;
-        box-shadow: inset -6px -6px 0px 0px #8C2022;
-      }
+    .slide-single:hover+.slide-single+.slide-single+.slide-marker {
+      top: 210px;
+    }
 
-      .eightbit-btn--reset:active {
-        box-shadow: inset 4px 4px 0px 0px #8C2022;
-      }
+    .slide-single:hover+.slide-single+.slide-single+.slide-single+.slide-marker {
+      top: 60px;
+    }
 
-      .eightbit-btn--proceed {
-        background: #F7D51D;
-        box-shadow: inset -4px -4px 0px 0px #E59400;
-      }
+    .slide-single:hover+.slide-single+.slide-single+.slide-single+.slide-single+.slide-marker {
+      top: 60px;
+    }
 
-      .eightbit-btn--proceed:hover,
-      .eightbit-btn--proceed:focus {
-        background: #F2C409;
-        box-shadow: inset -6px -6px 0px 0px #E59400;
-      }
+    .slide-single:active~.slide-marker:before,
+    .slide-single:active~.slide-marker:after {
+      transition: -webkit-transform 0.25s ease-in-out;
+      transition: transform 0.25s ease-in-out;
+      transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+      -webkit-transform: translateX(-50vw);
+      transform: translateX(-50vw);
+    }
 
-      .eightbit-btn--proceed:active {
-        box-shadow: inset 4px 4px 0px 0px #E59400;
-      }
+    html {
+      min-height: 100%;
+      background: url(http://i.imgur.com/xChy58V.png) no-repeat center center;
+      background-size: cover;
+    }
 
-      .credit {
-        text-shadow: white 3px 0px 0px, white 2.83487px 0.981584px 0px, white 2.35766px 1.85511px 0px, white 1.62091px 2.52441px 0px, white 0.705713px 2.91581px 0px, white -0.287171px 2.98622px 0px, white -1.24844px 2.72789px 0px, white -2.07227px 2.16926px 0px, white -2.66798px 1.37182px 0px, white -2.96998px 0.42336px 0px, white -2.94502px -0.571704px 0px, white -2.59586px -1.50383px 0px, white -1.96093px -2.27041px 0px, white -1.11013px -2.78704px 0px, white -0.137119px -2.99686px 0px, white 0.850987px -2.87677px 0px, white 1.74541px -2.43999px 0px, white 2.44769px -1.73459px 0px, white 2.88051px -0.838247px 0px;
-      }
+    body {
+      font-family: sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px;
+      font-family: 'Maven Pro', sans-serif;
+      text-align: center;
+    }
 
-      .credit a {
-        text-decoration: none;
-        color: red;
-      }
-    </style>
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h1,
+    h2 {
+      font-family: 'Yrsa', cursive;
+    }
+
+    p {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+
+    hr {
+      margin: 40px auto;
+      max-width: 100px;
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #ccc;
+      padding: 0;
+    }
+
+    .prompt-text {
+      font-family: 'Press Start 2P', cursive;
+      display: none;
+    }
+
+    .pen-intro {
+      text-align: center;
+    }
+
+    .eightbit-btn {
+      background: #92CD41;
+      display: block;
+      position: relative;
+      text-align: center;
+      font-size: 30px;
+      padding: 20px;
+      font-family: 'Press Start 2P', cursive;
+      text-decoration: none;
+      color: white;
+      box-shadow: inset -4px -4px 0px 0px #4AA52E;
+    }
+
+    .eightbit-btn:hover,
+    .eightbit-btn:focus {
+      background: #76c442;
+      box-shadow: inset -6px -6px 0px 0px #4AA52E;
+    }
+
+    .eightbit-btn:active {
+      box-shadow: inset 4px 4px 0px 0px #4AA52E;
+    }
+
+    .eightbit-btn:before,
+    .eightbit-btn:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-sizing: content-box;
+    }
+
+    .eightbit-btn:before {
+      top: -6px;
+      left: 0;
+      border-top: 6px black solid;
+      border-bottom: 6px black solid;
+    }
+
+    .eightbit-btn:after {
+      left: -6px;
+      top: 0;
+      border-left: 6px black solid;
+      border-right: 6px black solid;
+    }
+
+    .eightbit-btn--reset {
+      background: #E76E55;
+      box-shadow: inset -4px -4px 0px 0px #8C2022;
+    }
+
+    .eightbit-btn--reset:hover,
+    .eightbit-btn--reset:focus {
+      background: #CE372B;
+      box-shadow: inset -6px -6px 0px 0px #8C2022;
+    }
+
+    .eightbit-btn--reset:active {
+      box-shadow: inset 4px 4px 0px 0px #8C2022;
+    }
+
+    .eightbit-btn--proceed {
+      background: #F7D51D;
+      box-shadow: inset -4px -4px 0px 0px #E59400;
+    }
+
+    .eightbit-btn--proceed:hover,
+    .eightbit-btn--proceed:focus {
+      background: #F2C409;
+      box-shadow: inset -6px -6px 0px 0px #E59400;
+    }
+
+    .eightbit-btn--proceed:active {
+      box-shadow: inset 4px 4px 0px 0px #E59400;
+    }
+
+    .credit {
+      text-shadow: white 3px 0px 0px, white 2.83487px 0.981584px 0px, white 2.35766px 1.85511px 0px, white 1.62091px 2.52441px 0px, white 0.705713px 2.91581px 0px, white -0.287171px 2.98622px 0px, white -1.24844px 2.72789px 0px, white -2.07227px 2.16926px 0px, white -2.66798px 1.37182px 0px, white -2.96998px 0.42336px 0px, white -2.94502px -0.571704px 0px, white -2.59586px -1.50383px 0px, white -1.96093px -2.27041px 0px, white -1.11013px -2.78704px 0px, white -0.137119px -2.99686px 0px, white 0.850987px -2.87677px 0px, white 1.74541px -2.43999px 0px, white 2.44769px -1.73459px 0px, white 2.88051px -0.838247px 0px;
+    }
+
+    .credit a {
+      text-decoration: none;
+      color: red;
+    }
+  </style>
 
 
-  </body>
+</body>
 
-  </html>
+</html>
