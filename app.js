@@ -2,14 +2,15 @@ const express 		= require("express"),
 	  app			= express(),
 	  path 			= require("path");
 
-app.use(express.static(__dirname + "/sprites"));
+app.use(express.static(__dirname + "/assets"));
+app.use(express.static(__dirname + "/games"));
 // ROUTES
 app.get("/", function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/', '/index.html'));
 });
 
-app.get("/game", function(req, res) {
-	res.sendFile(path.join(__dirname, '/views/', '/game.html'));
+app.get("/levelOne", function(req, res) {
+	res.sendFile(path.join(__dirname, '/views/levelOne', '/game.html'));
 });
 
 
