@@ -38,10 +38,10 @@
                   <a href="javascript:void(0)" class="eightbit-btn eightbit-btn--proceed">Replay Level 1</a>
                 </div>
                 <div class="slide-single">
-                  <a href="javascript:void(0)" class="eightbit-btn">Buy More  Coins</a>
+                  <a href="javascript:void(0)" class="eightbit-btn">Buy More Coins</a>
                 </div>
                 <div class="slide-single">
-                  <a href="javascript:void(0)" class="eightbit-btn eightbit-btn--proceed">Enter Unlock Code</a>
+                  <a onclick="loadCodeUnlock()" sclass="eightbit-btn eightbit-btn--proceed">Enter Unlock Code</a>
                 </div>
              <!--   <div class="slide-single">
                   <a href="javascript:void(0)" class="eightbit-btn">Level 4</a>
@@ -109,12 +109,22 @@
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
 <script>
 
-    $(window).on('load',function(){
-        $('.paywall1').modal('show');
-    });
+  $(".prompt-modal").iziModal({
+    overlayClose: false,
+    overlayColor: 'rgba(0, 0, 0, 0.6)'
+  });
+
+
+    $('.prompt-modal').iziModal('open');
+
+  function loadCodeUnlock() {
+
+  }
+
+
 </script>
 
 <style>
@@ -371,15 +381,6 @@ hr {
 
         </style>    
 
-<script>
-        $(".prompt-modal").iziModal({
-    overlayClose: false,
-    overlayColor: 'rgba(0, 0, 0, 0.6)'
-    });
-
-
-    $('.prompt-modal').iziModal('open');
-</script>
 
 </body>
 </html>
