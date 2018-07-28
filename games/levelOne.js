@@ -21,10 +21,10 @@ var cursors;
 var game = new Phaser.Game(config);
 
 function preload () {
-    this.load.image('sky', '/assets/images/sky.png');
-    this.load.image('ground', '/assets/images/ground.png');
-    this.load.image('flag', '/assets/images/flag.png');
-    this.load.spritesheet('girl', '/assets/sprites/characters/girl.png', {frameWidth: 32, frameHeight: 48});
+    this.load.image('sky', '/images/sky.png');
+    this.load.image('ground', '/images/ground.png');
+    this.load.image('flag', '/images/flag.png');
+    this.load.spritesheet('girl', '/sprites/characters/girl.png', {frameWidth: 32, frameHeight: 48});
 }
 
 function create () {
