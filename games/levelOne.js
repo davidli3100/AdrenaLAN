@@ -83,7 +83,8 @@ function update () {
 
 function collectFlag(player, flag) {
 	flag.disableBody(true, true);
-	var victoryMessage = document.querySelector(".victory");
-	victoryMessage.style.display = "";
+	window.location.replace("/paywallOne");
+	// var victoryMessage = document.querySelector(".victory");
+	// victoryMessage.style.display = "";
 
 }
