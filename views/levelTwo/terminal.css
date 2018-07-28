@@ -3,6 +3,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    background: #9b59b6;
 }
 
 .container {
@@ -11,6 +12,9 @@ body {
     height: 400px;
 }
 
+h1{
+  color: #ecf0f1;
+}
 
 .header {
     background: linear-gradient(#f1f1f1 , #d3d3d3);

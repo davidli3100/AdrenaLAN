@@ -1,24 +1,837 @@
-<head>
+   
+   
+    <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modal Tester Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Yrsa|Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="/views/levelTwo/paywall.css">
+
 </head>
 
+  <body>
 
-<div class="container">
-        <h1>Terminal</h1>
-        <div class="header">
-          <div class="dot red"></div>
-          <div class="dot yellow"></div>
-          <div class="dot green"></div>
+
+    <!-- this is a modal to prompt the user to pay their monies-->
+
+    <div class="prompt-modal prompt-text">
+      <div class="prompt-enclose">
+        <div class="prompt-title">
+            Uh oh. You need to upgrade your hero to be able to pick this item up!
         </div>
-        <div class="panel">
-          <div class="action">
-            <div class="command"><span class="symbol">$</span>
-              <input class="in" type="text" placeholder='Hint: type "help"' autofocus=""/>
-            </div>
-            <div class="output"></div>
+        <button data-iziModal-close class="icon-close">x</button>
+        <div class="prompt-body">
+          <p style="font-size: 14px;">The intent is to provide players with a sense of pride and accomplishment!
+            <br> Buy a hero, or... play this level
+            <br> for an estimated 400 hours to gain the ability!</p>
+          <div class="sub-body-text">
+            Use FA Studios virtual currency coins to purchase levels, giving you a selection of new
+            <br> FA studios heroes, levels, sprite designs and other valuable resources to continue your FA Studio hero's journey.
           </div>
         </div>
       </div>
+    </div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="/views/levelTwo/paywall.js"></script>
+
+    <div class="slider-container modal paywall1">
+      <div class="slide-single">
+        <a onclick="exitToTwo()" class="eightbit-btn eightbit-btn--proceed">Replay Level 2</a>
+      </div>
+      <div class="slide-single">
+        <a onclick="buyHero()" class="eightbit-btn">Buy Hero</a>
+      </div>
+      <div class="slide-single">
+        <a onclick="loadTerminalIcon()" class="terminal-trigger eightbit-btn eightbit-btn--proceed">🤔</a>
+      </div>
+      <!--   <div class="slide-single">
+                  <a href="javascript:void(0)" class="eightbit-btn">Level 4</a>
+                </div> -->
+      <div class="slide-single">
+        <a onclick="exitToTwo()" data-dismiss="modal" aria-label="Close" class="eightbit-btn eightbit-btn--reset">Exit</a>
+      </div>
+
+      <div class="slide-marker"></div>
+    </div>
+
+
+  <!-- code unlock modal -->
+  <div class="code-unlock-modal">
+    <div class="unlock-enclose">
+      <div class="unlock-title">
+        Enter a Code To Unlock Level 2!
+      </div>
+      <button data-iziModal-close class="icon-close">x</button>
+      <div class="unlock-body">
+        <p style="font-size: 14px;">The code will be uncovered when the second level DLC is purchased!
+          <br>
+          <span class="blurred-code">BATTLEFRONT</span>
+        </p>
+        <div class="code-input-div">
+          <div style="margin-bottom: 30px" >Type The Code Below:</div>
+          <input id="code-input" name="code" placeholder="Insert Code here..." type="text">
+          <button id="checkCodeBtn" class="eightbit-btn code-submit" onclick="checkCode()"> SUBMIT </button>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- payment modal -->
+  <div class="payment-modal">
+      <div class="payment-enclose">
+      <div class="heading-text">
+        Pay Now To Unlock The Next Level!
+      </div>
+      <button data-iziModal-close class="icon-close">x</button>
+  
+      <div class="paypal-image">
+        <!-- PayPal Logo -->
+        <table border="0" cellpadding="10" cellspacing="0" align="center">
+          <tr>
+            <td align="center"></td>
+          </tr>
+          <tr>
+            <td align="center">
+              <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_payments_by_pp_2line.png" border="0" alt="Payments by PayPal">
+              </a>
+            </td>
+          </tr>
+        </table>
+        <!-- PayPal Logo -->
+      </div>
+      </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="container terminal">
+            <div class="header">
+              <div class="dot red"></div>
+              <div class="dot yellow"></div>
+              <div class="dot green"></div>
+            </div>
+            <div class="panel">
+              <div class="action">
+                <div class="command"><span class="symbol">$</span>
+                  <input class="in" type="text" placeholder='Hint: type "help"' autofocus=""/>
+                </div>
+                <div class="output"></div>
+              </div>
+            </div>
+          </div>
+    
+
+
+          <div class="inAppPurchase" id="wrapper">
+
+                <button class="productBack" onclick="exitBuyHero()">
+                    <ion-icon size="large" class="productBack" onclick="exitBuyHero()" name="arrow-round-back"></ion-icon>
+                </button>
+                <div id="content">
+          
+                  <div class="list">
+          
+                    <div class="product-card">
+                      <span class="tag">
+                                      <div id="coin"></div>
+                      </span>
+                      <h2 style="font-family: 'Source Sans Pro', sans-serif;" >Broken God Hero</h2>
+                      <h4>CHARACTER</h4>
+                      <figure>
+                        <img src="https://orig00.deviantart.net/58fb/f/2015/102/8/c/praise_the_sun_by_cyangmou-d8pf0v5.gif" alt="product" />
+                      </figure>
+                      
+                       
+                      
+                      <div class='button-wrap'>
+                      <a href="#" class="btn blue">$99.99</a>
+                  </div>
+                      
+          
+                    </div>
+          
+                  </div>
+          
+                </div>
+            </div>
+
+      <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  <script src="/views/levelTwo/paywall.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.2.5/dist/ionicons.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+
+  /**
+ * this is to initiate the paywall and next level functions of the routing
+ */
+
+$(".prompt-modal").iziModal({
+    overlayClose: false,
+    overlayColor: 'rgba(0, 0, 0, 0.6)'
+});
+
+$(".terminal").iziModal({
+    overlayClose: false,
+    overlayColor: 'rgba(0, 0, 0, 0.6)'
+});
+
+$(".inAppPurchase").iziModal({
+    overlayClose: false,
+    overlayColor: 'rgba(0, 0, 0, 0.6)'
+});
+
+
+$(".code-unlock-modal").iziModal({
+    overlayClose: false,
+    overlayColor: 'rgba(0, 0, 0, 0.6)'
+});
+
+    $(".payment-modal").iziModal({
+      overlayClose: false,
+      overlayColor: 'rgba(0, 0, 0, 0.6)'
+    });
+
+$('.prompt-modal').iziModal('open');
+
+function loadCodeUnlock() {
+    $('.code-unlock-modal').iziModal('open');
+}
+
+function codeCorrect() {
+    $('.code.unlock-modal').iziModal('hide');
+}
+
+var incorrectCode = document.getElementById('#codeInput').value;
+var codeBool = false;
+
+function buyCoins() {
+      $('.payment-modal').iziModal('open');
+    }s
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-bottom-left",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+
+
+  $("#code-input").on('keyup', function (e) {
+    if (e.keyCode == 13) {
+        if ($('#code-input').val == "BATTLEFRONT") {
+            codeCorrect();
+        }
+        else if ($('#code-input').val != "BATTLEFRONT") {
+            codeIncorrect($('#code-input').val)
+        }
+    }
+});
+
+
+
+ function checkCode(codeInputVal) {
+      codeInputVal = $("#code-input").val();
+      if (codeInputVal == "BATTLEFRONT"){
+        codeBool = true;
+        codeCorrect() 
+      } else {
+        codeBool = false;
+        codeIncorrect(codeInputVal);
+      }
+    }
+
+    $("#checkCodeBtn").click(function () {
+      if ($('#code-input').val == "BATTLEFRONT") {
+        codeCorrect();
+        
+      } else if ($('#code-input').val != "BATTLEFRONT") {
+        codeIncorrect($('#code-input').val)
+    }
+  });
+
+
+    function returnToFirstPay() {
+      $('#code-unlock-modal').iziModal('hide');
+    }
+
+    function codeCorrect() {
+      toastr.success("Great job! You've entered the correct  code. \n Sending you to the next level...", 'Success!');
+      $('#code-unlock-modal').iziModal('hide');
+      window.location.href = "/levelTwo";
+}
+
+
+function codeIncorrect(incorrectCode) {
+
+    // init alert
+    console.log(incorrectCode);
+    toastr.error("Oops! The code " + incorrectCode + " is incorrect! Please try again...", 'Uh oh');
+}
+
+
+function exitToMain() {
+    window.location.href="/levelOne";
+}
+
+function buyHero() {
+    $(".inAppPurchase").iziModal('open');
+}
+
+function exitBuyHero() {
+    $(".inAppPurchase").iziModal('hide');
+}
+
+function exitToTwo() {
+    window.location.href="/levelTwo";
+}
+
+</script>
+
+
+    <style>
+    /** begin product card **/
+
+    .productBack {
+        top: 25px;
+        left: 40px;
+        position: absolute;
+        background-color: transparent;
+        outline: transparent;
+        border: none;
+    }
+
+    .inAppPurchase {
+      width: 100% !important;
+      min-height: 102% !important;
+      /** display: block; **/
+
+      padding: 0;
+      margin: 0;
+      background-color: #f4f4f4;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    
+    *,
+    *:before,
+    *:after {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    
+    #wrapper {
+      width: 100% !important;
+      height: 102% !important;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 100% !important;
+    }
+    
+    #content {
+      width: 100%;
+      height: 50%;
+      background-color: #feca16;
+    }
+    #content .list {
+      width: 100%;
+      display: inline-block;
+      margin: 180px 0;
+      text-align: center;
+    }
+    
+    .product-card {
+      width: 280px;
+      display: inline-block;
+      background-color: #fff;
+      position: relative;
+      z-index: 20;
+      box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.1), 0px 0px 0px 4px #09171c;
+      border-radius: 2px;
+      margin-bottom: 40px;
+      -webkit-transition: all 250ms ease-out;
+      -moz-transition: all 250ms ease-out;
+      -ms-transition: all 250ms ease-out;
+      -o-transition: all 250ms ease-out;
+      transition: all 250ms ease-out;
+      cursor: pointer;
+      border-radius: 0 50px 50px 50px;
+    }
+    .product-card span.tag {
+      position: absolute;
+      left: 0px;
+      width: 40px;
+      height: 50px;
+      line-height: 40px;
+      color: #fff;
+      font-size: 14px;
+    }
+    .product-card span.tag:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 60px 60px 0 0;
+      border-color: #55acee transparent transparent transparent;
+    }
+    .product-card h2 {
+      width: 100%;
+      font-size: 24px;
+      font-weight: 700;
+      color: #323232;
+      padding: 0px;
+      margin: 30px 0 0;
+    }
+    .product-card h4 {
+      width: 100%;
+      font-size: 14px;
+      padding: 0px;
+      margin: 5px 0 0;
+      font-weight: 300;
+      letter-spacing: 4px;
+      color: #bbb;
+    }
+    .product-card figure {
+      width: 100%;
+      display: inline-block;
+      margin: 0px;
+      padding: 0px;
+    }
+    .product-card figure img {
+      display: inline-block;
+      max-width: 80%;
+      margin: 30px 0;
+      max-height: 25vh;
+    }
+    .product-card .button-wrap {
+      height: 100px;
+    }
+    .product-card .btn {
+      border-radius: 3px;
+      padding: 15px 25px;
+      font-size: 22px;
+      text-decoration: none;
+      margin: 20px;
+      color: #fff;
+      position: relative;
+      display: inline-block;
+    }
+    .product-card .btn:active {
+      transform: translate(0px, 5px);
+      -webkit-transform: translate(0px, 5px);
+      box-shadow: 0px 0px 0px 0px, 0px 0px 0px 3px #09171c;
+      padding-bottom: 10px;
+    }
+    .product-card .blue {
+      background-color: #55acee;
+      box-shadow: inset 0px -5px 0px 0px #3C93D5, 0px 0px 0px 3px #09171c;
+    }
+    .product-card .blue:hover {
+      background-color: #6FC6FF;
+    }
+    .product-card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.3), 0px 0px 0px 4px #09171c;
+    }
+    
+    .flag {
+      position: relative;
+    }
+    
+    #coin {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 40px;
+      background-image: url("http://www.williammalone.com/articles/create-html5-canvas-javascript-sprite-animation/images/coin-sprite-animation-sprite-sheet.png");
+      -webkit-animation: play 1s steps(10) infinite;
+      -moz-animation: play 1s steps(10) infinite;
+      -ms-animation: play 1s steps(10) infinite;
+      -o-animation: play 1s steps(10) infinite;
+      animation: play 1s steps(10) infinite;
+    }
+    @-webkit-keyframes play {
+      from {
+        background-position: 0px;
+        background-position: -440px;
+      }
+    }
+    @-moz-keyframes play {
+      from {
+        background-position: 0px;
+        background-position: -440px;
+      }
+    }
+    @-ms-keyframes play {
+      from {
+        background-position: 0px;
+        background-position: -440px;
+      }
+    }
+    @-o-keyframes play {
+      from {
+        background-position: 0px;
+        background-position: -440px;
+      }
+    }
+    @keyframes play {
+      from {
+        background-position: 0px;
+        background-position: -440px;
+      }
+    }
+
+    /** end product cards**/
+
+    .payment-modal {
+      background-color: #E76E55;
+      box-shadow: inset -4px -4px 0px 0px #8c2022;
+    }
+
+          #checkCodeBtn {
+      background-color:#F2C409;
+      box-shadow: inset -4px -4px 0px 0px #E59400
+    }
+
+    .unlock-enclose {
+      margin-top: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    }
+
+    #code-input::placeholder {
+      color: #fff;
+    }
+
+    #code-input {
+      color: #fff;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    width: auto;
+    min-width: 50%;
+    font-size: 14px;
+    line-height: 3em;
+    font-family: Roboto, Arial, sans-serif;
+    border-bottom: 3px solid #fff;
+    background-color: transparent;
+    }
+
+        .code-unlock-modal {
+      background-color: #529ff9;
+      box-shadow: inset -4px -4px 0px 0px #006eff;
+    }
+
+    .payment-enclose {
+      padding: 30px;
+    }
+    
+    .heading-text, .unlock-enclose {
+      font-family: 'Press Start 2P', cursive;
+      color: white;
+    }
+
+      .code-submit {
+        font-size: 14px !important;
+        margin: 30px auto !important;
+        padding: 15px !important;
+      }
+
+      .prompt-enclose {
+        padding: 30px;
+        background-color: #92CD41;
+        box-shadow: inset -4px -4px 0px 0px #4AA52E;
+        
+      }
+
+      .icon-close {
+        outline: none;
+        border: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 25px;
+        width: 25px;
+        font-size: 16px;
+        background-color: #F2C409;
+        color: white;
+        font-family: 'Press Start 2P', cursive;
+      }
+
+      .prompt-text {
+        max-width: 800px !important;
+        font-size: 25px;
+      }
+
+      .prompt-title,
+      .prompt-body {
+        max-width: 775px;
+      }
+
+      .code-prompt1 {
+        position: absolute;
+        max-width: 700px;
+        left: 1rem;
+      }
+
+      .sub-body-text {
+        font-size: 12px;
+        font-weight: 300;
+      }
+
+      .blurred-code {
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+      }
+
+      .modal-content-paywall1 {
+        width: 850px;
+      }
+
+      .slider-container {
+        position: relative;
+      }
+
+      .slide-single {
+        padding: 20px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      @media screen and (min-width: 600px) {
+        .slide-marker {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 60px;
+          height: 60px;
+          background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/70422/spaceship.png") no-repeat center center;
+          background-size: contain;
+          transition: top 0.25s ease-in-out;
+          margin: -30px 0 0;
+          top: 230px;
+        }
+        .slide-marker:before,
+        .slide-marker:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 30px;
+          width: 10px;
+          height: 4px;
+          margin: -2px 0 0;
+          background: white;
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+          z-index: -1;
+        }
+        .slide-marker:after {
+          right: 10px;
+        }
+      }
+
+      .slide-single:hover+.slide-marker {
+        top: 470px;
+      }
+
+      .slide-single:hover+.slide-single+.slide-marker {
+        top: 350px;
+      }
+
+      .slide-single:hover+.slide-single+.slide-single+.slide-marker {
+        top: 210px;
+      }
+
+      .slide-single:hover+.slide-single+.slide-single+.slide-single+.slide-marker {
+        top: 60px;
+      }
+
+      .slide-single:hover+.slide-single+.slide-single+.slide-single+.slide-single+.slide-marker {
+        top: 60px;
+      }
+
+      .slide-single:active~.slide-marker:before,
+      .slide-single:active~.slide-marker:after {
+        transition: -webkit-transform 0.25s ease-in-out;
+        transition: transform 0.25s ease-in-out;
+        transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+        -webkit-transform: translateX(-50vw);
+        transform: translateX(-50vw);
+      }
+
+      html {
+        min-height: 100%;
+        background: url(http://i.imgur.com/xChy58V.png) no-repeat center center;
+        background-size: cover;
+      }
+
+      body {
+        font-family: sans-serif;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 30px;
+        font-family: 'Maven Pro', sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      h1,
+      h2 {
+        font-family: 'Yrsa', cursive;
+      }
+
+      p {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+
+      hr {
+        margin: 40px auto;
+        max-width: 100px;
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        padding: 0;
+      }
+
+      .prompt-text {
+        font-family: 'Press Start 2P', cursive;
+        display: none;
+      }
+
+      .pen-intro {
+        text-align: center;
+      }
+
+      .eightbit-btn {
+        background: #92CD41;
+        display: block;
+        position: relative;
+        text-align: center;
+        font-size: 30px;
+        padding: 20px;
+        font-family: 'Press Start 2P', cursive;
+        text-decoration: none;
+        color: white;
+        box-shadow: inset -4px -4px 0px 0px #4AA52E;
+      }
+
+      .eightbit-btn:hover,
+      .eightbit-btn:focus {
+        background: #76c442;
+        box-shadow: inset -6px -6px 0px 0px #4AA52E;
+      }
+
+      .eightbit-btn:active {
+        box-shadow: inset 4px 4px 0px 0px #4AA52E;
+      }
+
+      .eightbit-btn:before,
+      .eightbit-btn:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-sizing: content-box;
+      }
+
+      .eightbit-btn:before {
+        top: -6px;
+        left: 0;
+        border-top: 6px black solid;
+        border-bottom: 6px black solid;
+      }
+
+      .eightbit-btn:after {
+        left: -6px;
+        top: 0;
+        border-left: 6px black solid;
+        border-right: 6px black solid;
+      }
+
+      .eightbit-btn--reset {
+        background: #E76E55;
+        box-shadow: inset -4px -4px 0px 0px #8C2022;
+      }
+
+      .eightbit-btn--reset:hover,
+      .eightbit-btn--reset:focus {
+        background: #CE372B;
+        box-shadow: inset -6px -6px 0px 0px #8C2022;
+      }
+
+      .eightbit-btn--reset:active {
+        box-shadow: inset 4px 4px 0px 0px #8C2022;
+      }
+
+      .eightbit-btn--proceed {
+        background: #F7D51D;
+        box-shadow: inset -4px -4px 0px 0px #E59400;
+      }
+
+      .eightbit-btn--proceed:hover,
+      .eightbit-btn--proceed:focus {
+        background: #F2C409;
+        box-shadow: inset -6px -6px 0px 0px #E59400;
+      }
+
+      .eightbit-btn--proceed:active {
+        box-shadow: inset 4px 4px 0px 0px #E59400;
+      }
+
+      .credit {
+        text-shadow: white 3px 0px 0px, white 2.83487px 0.981584px 0px, white 2.35766px 1.85511px 0px, white 1.62091px 2.52441px 0px, white 0.705713px 2.91581px 0px, white -0.287171px 2.98622px 0px, white -1.24844px 2.72789px 0px, white -2.07227px 2.16926px 0px, white -2.66798px 1.37182px 0px, white -2.96998px 0.42336px 0px, white -2.94502px -0.571704px 0px, white -2.59586px -1.50383px 0px, white -1.96093px -2.27041px 0px, white -1.11013px -2.78704px 0px, white -0.137119px -2.99686px 0px, white 0.850987px -2.87677px 0px, white 1.74541px -2.43999px 0px, white 2.44769px -1.73459px 0px, white 2.88051px -0.838247px 0px;
+      }
+
+      .credit a {
+        text-decoration: none;
+        color: red;
+      }
+    </style>
+
