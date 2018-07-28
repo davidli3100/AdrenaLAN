@@ -6,13 +6,13 @@ A parody of EA's anti-consumer business practices, where the player has to get a
 
 
 ## Who are we?
-### David - @davidli3100
+### davidli3100
 <!--- Add Description --->
 
-### Hasan - 
+### ihasan98
 <!--- Add Description --->
 
-### Jason - @jhthenerd
+### jhthenerd
 <!--- Add Description --->
 
 
