@@ -90,5 +90,6 @@ function codeIncorrect(incorrectCode) {
 }
 
 function exitToMain() {
-    window.location.href="/levelOne";
+    iframe = window.parent.document.querySelector('iframe');
+    iframe.setAttribute('src', '/levelOne');
 }
