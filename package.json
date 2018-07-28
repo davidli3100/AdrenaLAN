@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/davidli3100/AdrenaLAN/issues"
   },
-  "homepage": "https://github.com/davidli3100/AdrenaLAN#readme"
+  "homepage": "https://github.com/davidli3100/AdrenaLAN#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
