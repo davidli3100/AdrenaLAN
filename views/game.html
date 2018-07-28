@@ -1,4 +1,6 @@
 <!-- work done by David... basic template for phaser. everything can be changed except for the script tag for phaser.min.js -->
+<!-- setting up game collides and physics-->
+
 
 <!DOCTYPE html>
 <html>
@@ -10,26 +12,22 @@
     <script>
     var config = {
         type: Phaser.AUTO,
-        width: 800,
-        height: 600,
-        physics: {
-            default: 'arcade',
-            arcade: {
-                gravity: { y: 200 }
-            }
-        },
+        width: /*800 */ 850,
+        height: 1000,
+        parent: "game-canvas",
         scene: {
             preload: preload,
-            create: create
+            create: create,
+            update: update
         }
     };
 
-    var game = new Phaser.Game(config);
+    const game = new Phaser.Game(config);
 
     function preload ()
     {
         this.load.setBaseURL('http://labs.phaser.io');
-
+        this.load.image('tilemap')
         this.load.image('sky', 'assets/skies/space3.png');
         this.load.image('logo', 'assets/sprites/phaser3-logo.png');
         this.load.image('red', 'assets/particles/red.png');
