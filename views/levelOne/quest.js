@@ -23,6 +23,8 @@ const config = {
   function preload() {
         this.load.image("tiles", "../assets/sprites/scenery/roguelikeSheet_transparent.png")
         this.load.tilemapTiledJSON("map", "../assets/sprites/map/level1.json")
+        //Loading atlas
+        this.load.atlas("atlas", "/atlas/atlas.png", "/atlas/atlas.json");
     }
   
   function create() {
