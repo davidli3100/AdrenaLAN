@@ -1,6 +1,4 @@
 <!-- work done by David... basic template for phaser. everything can be changed except for the script tag for phaser.min.js -->
-<!-- setting up game collides and physics-->
-
 
 <!DOCTYPE html>
 <html>
@@ -12,46 +10,75 @@
     <script>
     var config = {
         type: Phaser.AUTO,
-        width: /*800 */ 850,
-        height: 1000,
-        parent: "game-canvas",
+        width: 800,
+        height: 600,
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 200 }
+            }
+        },
         scene: {
             preload: preload,
-            create: create,
-            update: update
+            create: create
         }
     };
 
     const game = new Phaser.Game(config);
+    let cursors;
+    let player;
+    let showDebug = false;
 
     function preload ()
     {
-        this.load.setBaseURL('http://labs.phaser.io');
-        this.load.image('tilemap')
-        this.load.image('sky', 'assets/skies/space3.png');
-        this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-        this.load.image('red', 'assets/particles/red.png');
+        this.load.image("tiles", "/scenery/roguelikeSheet_transparent.png");
+        this.load.tilemapTiledJSON("map", "/map/level1.json");
     }
 
-    function create ()
-    {
-        this.add.image(400, 300, 'sky');
+    function create() {
+        // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
+        // Phaser's cache (i.e. the name you used in preload)
+        const tileset = map.addTilesetImage("roguelikeSheet_transparent", "tiles");
 
-        var particles = this.add.particles('red');
+        // Parameters: layer name (or index) from Tiled, tileset, x, y
+        const grassLayer = map.createStaticLayer("Grass", tileset, 0, 0),
+            pathLayer = map.createStaticLayer("Path", tileset, 0, 0),
+            houseBodyLayer = map.createStaticLayer("HouseBody", tileset, 0, 0),
+            houseDecLayer = map.createStaticLayer("HouseDec", tileset, 0, 0),
+            foliageLayer = map.createStaticLayer("Foliage", tileset, 0, 0);
 
-        var emitter = particles.createEmitter({
-            speed: 100,
-            scale: { start: 1, end: 0 },
-            blendMode: 'ADD'
-        });
+        foliageLayer.setCollisionByProperty({ collides: true });
 
-        var logo = this.physics.add.image(400, 100, 'logo');
+        const player = this.physics.add.sprite(400, 350, "atlas", "misa-front");
+    }
 
-        logo.setVelocity(100, 200);
-        logo.setBounce(1, 1);
-        logo.setCollideWorldBounds(true);
+    function update(time, delta) {
+          // Stop any previous movement from the last frame
+          player.body.setVelocity(0);
 
-        emitter.startFollow(logo);
+          // Horizontal movement
+          if (cursors.left.isDown) {
+            player.body.setVelocityX(-100);
+          } else if (cursors.right.isDown) {
+            player.body.setVelocityX(100);
+          }
+
+          // Vertical movement
+          if (cursors.up.isDown) {
+            player.body.setVelocityY(-100);
+          } else if (cursors.down.isDown) {
+            player.body.setVelocityY(100);
+          }
+
+          // Normalize and scale the velocity so that player can't move faster along a diagonal
+          player.body.velocity.normalize().scale(speed);
+    }
+
+    function setup() {
+        // ...
+
+        // This will watch the player and worldLayer every frame to check for collisions
+        this.physics.add.collider(player, foliageLayer);
     }
     </script>
 
