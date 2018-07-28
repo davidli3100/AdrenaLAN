@@ -71,7 +71,10 @@
         </p>
         <div class="code-input-div">
           <div style="margin-bottom: 30px" >Type The Code Below:</div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 5404070... tes
           <input id="code-input" name="code" placeholder="Insert Code here..." type="text">
           <button id="checkCodeBtn" class="eightbit-btn code-submit" onclick="checkCode()"> SUBMIT </button>
         </div>
@@ -174,7 +177,6 @@
      * this is to initiate the paywall and next level functions of the routing
      */
 
-<<<<<<< HEAD
         function delay(ms) {
         var cur_d = new Date();
         var cur_ticks = cur_d.getTime();
@@ -236,7 +238,10 @@
     }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 5404070... tes
     $("#code-input").on('keyup', function (e) {
       if (e.keyCode == 13) {
         if ($('#code-input').val == "BATTLEFRONT") {
@@ -262,13 +267,19 @@
       if (codeInputVal == "BATTLEFRONT") {
         codeBool = true;
         codeCorrect()
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 5404070... tes
       } else {
         codeBool = false;
         codeIncorrect(codeInputVal);
       }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 5404070... tes
 
     function returnToFirstPay() {
       $('#code-unlock-modal').iziModal('hide');
@@ -282,7 +293,11 @@
       window.location.href = "/levelTwo";
     }
 
+<<<<<<< HEAD
     function codeIncorrect(incorrectCode) {
+=======
+    function codeIncorrect(inscorrectCode) {
+>>>>>>> parent of 5404070... tes
 
       // init alert
       console.log(incorrectCode);
@@ -293,11 +308,14 @@
       window.location.href = "/levelOne";
     }
     
+<<<<<<< HEAD
 
       $(".prompt-modal").iziModal({
         overlayClose: false,
         overlayColor: 'rgba(0, 0, 0, 0.6)'
       });
+=======
+>>>>>>> parent of 5404070... tes
 
     function buyCoins() {
       $('.payment-modal').iziModal('open');
@@ -348,7 +366,6 @@
 
     .payment-enclose {
 
-<<<<<<< HEAD
       padding: 30px;
     }
 
