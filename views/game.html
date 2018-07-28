@@ -15,7 +15,7 @@
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: { y: 200 }
+                gravity: { y: 0}
             }
         },
         scene: {
@@ -48,10 +48,20 @@
 
         foliageLayer.setCollisionByProperty({ collides: true });
 
-        const player = this.physics.add.sprite(400, 350, "atlas", "misa-front");
+
+        const spawnPoint = map.findObject("Objects", obj => obj.name == "Spawn Point");
+
+        const player = this.physics.add
+        .sprite(spawnPoint.x, spawnPoint.y, "/characters/roguelikeChar_transparent.png");
+
+        this.physics.add.collider(player, foliageLayer);
+        cursors = this.input.keyboard.createCursorKeys();
+
     }
 
     function update(time, delta) {
+        const speed = 175;
+        const prevVelocity = player.body.velocity.clone();
           // Stop any previous movement from the last frame
           player.body.setVelocity(0);
 
