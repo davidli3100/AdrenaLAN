@@ -1,4 +1,4 @@
-<<<<<<< HEAD <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
 
   <head>
@@ -57,7 +57,31 @@
     </div>
 
 
-    <!--   <div class="modal paywall1" tabindex="-1">
+    <!-- code unlock modal -->
+    <div class="code-unlock-modal">
+      <div class="unlock-enclose">
+        <div class="unlock-title">
+          Enter a Code To Unlock Level 2!
+        </div>
+        <button data-iziModal-close class="icon-close">x</button>
+        <div class="unlock-body">
+          <p style="font-size: 14px;">The code will be uncovered when the second level DLC is purchased!
+            <br>
+            <span class="blurred-code">BATTLEFRONT</span>
+          </p>
+          <div class="code-input-div">
+            <span>Type The Code Below:</span>
+            <input id="code-input" name="code" placeholder="Insert Code here..." type="text">
+            <button id="checkCodeBtn" class="eightbit-btn code-submit" onclick="checkCode()" > SUBMIT </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!--   <div class="modal paywall1"s tabindex="-1">
                   <div class="modal-content modal-content-paywall1">
                     <div class="modal-header">
                       <h5 class="modal-title">Purchase More Levels!</h5>
@@ -110,12 +134,17 @@
 
 
 
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
+   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script> -->
+      <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script>
+    <script src="firstLevel.js"></script>
+
+    <!--   <script>
       $(".prompt-modal").iziModal({
         overlayClose: false,
         overlayColor: 'rgba(0, 0, 0, 0.6)'
@@ -147,9 +176,15 @@
         popupAlert.innerHTML("The Code " + incorrectCode + "is incorrect. Please try again. ")
 
       }
-    </script>
+    </script> -->
 
     <style>
+      .code-submit {
+        font-size: 14px !important;
+        margin: 30px auto !important;
+        padding: 15px !important;
+      }
+
       .prompt-enclose {
         padding: 30px;
         background-color: #92CD41;
