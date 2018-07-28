@@ -2,6 +2,7 @@ const express 		= require("express"),
 	  app			= express(),
 	  path 			= require("path");
 
+app.use(express.static(__dirname + "/sprites"));
 // ROUTES
 app.get("/", function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/', '/index.html'));
