@@ -42,6 +42,7 @@ var path = [];
 function unlock_pick_up (param) {
   console.log(param);
   if(param == "true") {
+    window.open ('/gameOver','_self',false);
     return "Pick Up Unlocked! <br"+"> Sending you to next level...";
   }
   else if(param == "false") {
