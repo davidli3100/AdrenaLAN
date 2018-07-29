@@ -259,8 +259,8 @@ var path = [];
 function unlock_pick_up (param) {
   console.log(param);
   if(param == "true") {
-    return "Pick Up Unlocked! <br"+"> Sending you to next level...";
-    location.replace('/win');
+    return "Pick Up Unlocked! <br"+"> Sending you to next level..." + setTimeout(location.replace('/win'
+, 5500));
   }
   else if(param == "false") {
     return "Pick up disabled.";
