@@ -44,3 +44,4 @@ EA has been criticised many times for their anti-consumer practices, including p
 - [ ] Sound Effects
 - [ ] Tutorial prompts
 - [ ] Background Music
+- [ ] Memory for CMD Prompt
