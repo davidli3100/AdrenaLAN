@@ -30,6 +30,10 @@ app.get("/paywallTwo", function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/levelTwo', '/paywall.html'));
 });
 
+// You Win Page
+app.get("/gameOver", function(req, res) {
+	res.sendFile(path.join(__dirname, '/views/youWin/', '/win.html'));
+});
 
 app.listen(3000, function() {
 	console.log("Server has started at PORT: 3000");
