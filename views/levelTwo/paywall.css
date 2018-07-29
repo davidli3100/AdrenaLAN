@@ -52,7 +52,7 @@ body {
 .panel {
     height: 70vh;
     background: #27292c;
-    padding: 20px;
+    /* padding: 20px; */
     overflow-y: scroll;
 }
 

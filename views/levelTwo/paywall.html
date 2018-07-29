@@ -19,22 +19,22 @@
   <body>
     <script>
     
-    $(".panel").on('keypress', ".in-terminal", function(e) {
-    console.log("test1");
-    if (e.which == 13) {
-        $(this).prop('readonly', true);
-        var input = $(this).val().split(" ");
-        console.log(input);
-        if (input[1]) {
-            var output = execute(input[0], input[1]);
-        } else {
-            var output = execute(input[0], "");
-        }
-        $(".output").last().html(output)
-        $(".panel").append($("<div class='action'>").html("<div class='action'><div class='command'><span class='symbol'>$</span><input class='in' type='text'></div><div class='output'></div></div>"));
-        $(".in").last().focus();
-    }
-});
+//     $(".panel").on('keypress', ".in-terminal", function(e) {
+//     console.log("test1");
+//     if (e.which == 13) {
+//         $(this).prop('readonly', true);
+//         var input = $(this).val().split(" ");
+//         console.log(input);
+//         if (input[1]) {
+//             var output = execute(input[0], input[1]);
+//         } else {
+//             var output = execute(input[0], "");
+//         }
+//         $(".output").last().html(output)
+//         $(".panel").append($("<div class='action'>").html("<div class='action'><div class='command'><span class='symbol'>$</span><input class='in' type='text'></div><div class='output'></div></div>"));
+//         $(".in").last().focus();
+//     }
+// });
 
 
 function execute(command, parameters) {
@@ -272,15 +272,18 @@ $('.panel').stop().animate({
     </div>
     </div>
 
+  <!--  <div class="terminalIframe">
+            <iframe scrolling="no" style="overflow: hidden !important;"src="http://127.0.0.1:5500/views/levelTwo/terminal.html"></iframe>
+
+    </div> -->
     <div class="container terminal">
 
-            <iframe src="http://127.0.0.1:5500/views/levelTwo/terminal.html"></iframe>
           <div class="header">
               <div data-iziModal-close class="dot red"></div>
               <div class="dot yellow"></div>
               <div class="dot green"></div>
             </div>
-            <div class="panel">
+            <div id='main-terminal' class="panel">
               <div class="action">
                 <div class="command"><span class="symbol">$</span>
                   <input class="in-terminal" type="text" placeholder='Hint: type help' autofocus=""/>
@@ -327,14 +330,49 @@ $('.panel').stop().animate({
       <script
   src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
   ></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>s
     <script src="https://unpkg.com/ionicons@4.2.5/dist/ionicons.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script>
 
-$(".panel").on('keypress', ".in-terminal", function(e) {
-    console.log("test1");
-    if (e.which == 13) {
+// $(".panel").on('keypress', ".in-terminal", function(e) {
+//     console.log("test1");
+//     if (e.which === 13) {
+//         $(this).prop('readonly', true);
+//         var input = $(this).val().split(" ");
+//         console.log(input);
+//         if (input[1]) {
+//             var output = execute(input[0], input[1]);
+//         } else {
+//             var output = execute(input[0], "");
+//         }
+//         $(".output").last().html(output)
+//         $(".panel").append($("<div class='action'>").html("<div class='action'><div class='command'><span class='symbol'>$</span><input class='in' type='text'></div><div class='output'></div></div>"));
+//         $(".in").last().focus();
+//     }
+// });
+
+// $( ".in-terminal" ).keydown(function(e)  {
+//     console.log("test1");
+//     if (e.which === 13) {
+//         $(this).prop('readonly', true);
+//         var input = $(this).val().split(" ");
+//         console.log(input);
+//         if (input[1]) {
+//             var output = execute(input[0], input[1]);
+//         } else {
+//             var output = execute(input[0], "");
+//         }
+//         $(".output").last().html(output)
+//         $(".panel").append($("<div class='action'>").html("<div class='action'><div class='command'><span class='symbol'>$</span><input class='in' type='text'></div><div class='output'></div></div>"));
+//         $(".in").last().focus();
+//     }
+// });
+
+
+$(document).on('keypress', ".in-terminal",  function(event) {
+    if (event.keyCode === 13) {
+        console.log("test1");
         $(this).prop('readonly', true);
         var input = $(this).val().split(" ");
         console.log(input);
@@ -344,10 +382,11 @@ $(".panel").on('keypress', ".in-terminal", function(e) {
             var output = execute(input[0], "");
         }
         $(".output").last().html(output)
-        $(".panel").append($("<div class='action'>").html("<div class='action'><div class='command'><span class='symbol'>$</span><input class='in' type='text'></div><div class='output'></div></div>"));
-        $(".in").last().focus();
+        $(".panel").append($("<div class='action'>").html("<div class='action'><div class='command'><span class='symbol'>$</span><input class='in-terminal' type='text'></div><div class='output'></div></div>"));
+        $("#main-terminal .action:last-child > .action > .command > .in-terminal").last().focus();
     }
 });
+
 
 
 function execute(command, parameters) {
@@ -502,6 +541,11 @@ $(".terminal").iziModal({
     overlayColor: 'rgba(0, 0, 0, 0.6)'
 });
 
+$(".terminalIframe").iziModal({
+    overlayClose: false,
+    overlayColor: 'rgba(0, 0, 0, 0.6)'
+});
+
 $(".inAppPurchase").iziModal({
     overlayClose: false,
     overlayColor: 'rgba(0, 0, 0, 0.6)'
@@ -631,6 +675,7 @@ function loadTerminal() {
 
     <style>
     /** begin product card **/
+
 
     .productBack {
         top: 25px;
