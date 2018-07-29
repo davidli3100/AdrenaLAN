@@ -33,7 +33,7 @@ It actually works TM
 when 7 people in total couldn't troubleshoot one pesky modal
 
 ## What have we learned?
-# ***don't use modals***
+#### ***don't use modals***
 
 ## TO-DO
 - [ ] Level 2
