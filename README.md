@@ -36,8 +36,8 @@ when 7 people in total couldn't troubleshoot one pesky modal
 ### ***don't use modals***
 
 ## TO-DO
-- [ ] Level 2
-  - [ ] Hacking Minigame
+- [x] Level 2
+  - [x] Hacking Minigame
 - [ ] Level 3
   - [ ] Hacking Minigame
 - [ ] Intro menu
