@@ -12,6 +12,9 @@ var config = {
         preload: preload,
         create: create,
         update: update
+    },
+    audio: {
+        disableWebAudio: true
     }
 };
 
@@ -20,6 +23,8 @@ var cursors;
 var player;
 var coin;
 var count = 0;
+var music;
+var pickup;
 
 function preload ()
 {
@@ -27,7 +32,8 @@ function preload ()
     this.load.tilemapTiledJSON("map", "/sprites/map/level2.json");
     this.load.image('dot', '/sprites/characters/reddot.png');
     this.load.spritesheet('coin', '/sprites/characters/coin_spritesheet.png', {frameWidth: 14, frameHeight: 14});
-
+    this.load.audio('bgm', ['/audio/08 - Overworld.ogg']);
+    this.load.audio('pickup', ['/audio/pickup.ogg']);
 }
 
 
@@ -37,7 +43,7 @@ function create() {
 
     // Parameters: layer name (or index) from Tiled, tileset, x, y
     const belowLayer = map.createStaticLayer("belowPlayer", tileset, 0, 0),
-          worldLayer = map.createStaticLayer("World", tileset, 0, 0);
+          worldLayer = map.createStaticLayer("World", tileset, 0, 0); 
     worldLayer.setCollisionByProperty({ collides: true });
 
     coins = this.physics.add.group();
@@ -73,6 +79,8 @@ function create() {
     // this.physics.add.overlap(player, coin2, collectGold, null, this);
     // this.physics.add.overlap(player, coin3, collectGold, null, this);
     this.physics.add.overlap(player, coins, collectGold, null, this);
+    music = this.sound.add('bgm', {loop: true});
+	music.play();
 }
 
     
@@ -96,5 +104,7 @@ function collectGold(player, coin) {
     iframe.setAttribute('src', '/paywallTwo');
     iframe.setAttribute('class', 'game-container');
   }
+  pickup = this.sound.add('pickup',  {loop: false});
+  pickup.play();
 }
 
