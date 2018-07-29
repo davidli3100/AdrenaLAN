@@ -21,6 +21,11 @@ var player;
 var platform;
 var cursors;
 var game = new Phaser.Game(config);
+var bgm = new Howl({
+	src: ['/audio/08 - Overworld.ogg'],
+	autoplay: true,
+	loop: true
+  });
 
 function preload() {
 	this.load.image('sky', '/images/sky.png');
@@ -76,6 +81,8 @@ function create() {
 
 	this.physics.add.collider(player, platform);
 	this.physics.add.overlap(player, flag, collectFlag, null, this);
+
+	bgm.play();
 }
 
 function update() {
@@ -97,7 +104,9 @@ function update() {
 
 function collectFlag(player, flag) {
 	flag.disableBody(true, true);
-	iframe = window.parent.document.querySelector('iframe');
-    iframe.setAttribute('src', '/paywallOne');
-
+	window.location.replace("/paywallOne");
+	// var victoryMessage = document.querySelector(".victory");
+	// victoryMessage.style.display = "";
+	bgm.fade(1.0, 0.0, 500);
+	bgm.stop;
 }
