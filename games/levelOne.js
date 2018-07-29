@@ -97,8 +97,7 @@ function update() {
 
 function collectFlag(player, flag) {
 	flag.disableBody(true, true);
-	window.location.replace("/paywallOne");
-	// var victoryMessage = document.querySelector(".victory");
-	// victoryMessage.style.display = "";
+	iframe = window.parent.document.querySelector('iframe');
+    iframe.setAttribute('src', '/paywallOne');
 
 }

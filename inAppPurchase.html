@@ -1,239 +1,225 @@
-<body>
-  <div id="wrapper">
-    <div id="content">
 
-      <div class="list">
-
-        <div class="product-card">
-          <span class="tag">
-            <div id="coin"></div>
-          </span>
-          <h2>Broken God Hero</h2>
-          <h4>CHARACTERb</h4>
-          <figure>
-            <img src="https://ih1.redbubble.net/image.276151196.3217/flat,800x800,075,f.u2.jpg" alt="product" />
-          </figure>
-
-
-
-          <div class='button-wrap'>
-            <a href="#" class="btn blue">$0.99</a>
-          </div>
-
-
+        <div class="inAppPurchase" id="wrapper">
+            <div id="content">
+      
+              <div class="list">
+      
+                <div class="product-card">
+                  <span class="tag">
+                                  <div id="coin"></div>
+                  </span>
+                  <h2>Broken God Hero</h2>
+                  <h4>CHARACTERs</h4>
+                  <figure>
+                    <img src="https://ih1.redbubble.net/image.276151196.3217/flat,800x800,075,f.u2.jpg" alt="product" />
+                  </figure>
+                  
+                   
+                  
+                  <div class='button-wrap'>
+                  <a href="#" class="btn blue">$0.99</a>
+              </div>
+                  
+      
+                </div>
+      
+              </div>
+      
+            </div>
         </div>
 
-      </div>
 
-    </div>
-  </div>
-</body>
+      <style>
 
-<style>
-  html,
-  body {
-    width: 100%;
-    min-height: 100%;
-    display: block;
-    padding: 0;
-    margin: 0;
-    background-color: #f4f4f4;
-    font-family: 'Source Sans Pro', sans-serif;
+ 
+ 
+.inAppPurchase {
+  width: 100%;
+  min-height: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  background-color: #f4f4f4;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#wrapper {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#content {
+  width: 100%;
+  height: 50%;
+  background-color: #feca16;
+}
+#content .list {
+  width: 100%;
+  display: inline-block;
+  margin: 180px 0;
+  text-align: center;
+}
+
+.product-card {
+  width: 280px;
+  display: inline-block;
+  background-color: #fff;
+  position: relative;
+  z-index: 20;
+  box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.1), 0px 0px 0px 4px #09171c;
+  border-radius: 2px;
+  margin-bottom: 40px;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -ms-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
+  cursor: pointer;
+  border-radius: 0 50px 50px 50px;
+}
+.product-card span.tag {
+  position: absolute;
+  left: 0px;
+  width: 40px;
+  height: 50px;
+  line-height: 40px;
+  color: #fff;
+  font-size: 14px;
+}
+.product-card span.tag:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 60px 60px 0 0;
+  border-color: #55acee transparent transparent transparent;
+}
+.product-card h2 {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  color: #323232;
+  padding: 0px;
+  margin: 30px 0 0;
+}
+.product-card h4 {
+  width: 100%;
+  font-size: 14px;
+  padding: 0px;
+  margin: 5px 0 0;
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: #bbb;
+}
+.product-card figure {
+  width: 100%;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+.product-card figure img {
+  display: inline-block;
+  max-width: 80%;
+  margin: 30px 0;
+  max-height: 25vh;
+}
+.product-card .button-wrap {
+  height: 100px;
+}
+.product-card .btn {
+  border-radius: 3px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+.product-card .btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 0px 0px 0px, 0px 0px 0px 3px #09171c;
+  padding-bottom: 10px;
+}
+.product-card .blue {
+  background-color: #55acee;
+  box-shadow: inset 0px -5px 0px 0px #3C93D5, 0px 0px 0px 3px #09171c;
+}
+.product-card .blue:hover {
+  background-color: #6FC6FF;
+}
+.product-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.3), 0px 0px 0px 4px #09171c;
+}
+
+.flag {
+  position: relative;
+}
+
+#coin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 40px;
+  background-image: url("http://www.williammalone.com/articles/create-html5-canvas-javascript-sprite-animation/images/coin-sprite-animation-sprite-sheet.png");
+  -webkit-animation: play 1s steps(10) infinite;
+  -moz-animation: play 1s steps(10) infinite;
+  -ms-animation: play 1s steps(10) infinite;
+  -o-animation: play 1s steps(10) infinite;
+  animation: play 1s steps(10) infinite;
+}
+@-webkit-keyframes play {
+  from {
+    background-position: 0px;
+    background-position: -440px;
   }
-
-  *,
-  *:before,
-  *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+}
+@-moz-keyframes play {
+  from {
+    background-position: 0px;
+    background-position: -440px;
   }
-
-  #wrapper {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+}
+@-ms-keyframes play {
+  from {
+    background-position: 0px;
+    background-position: -440px;
   }
-
-  #content {
-    width: 100%;
-    height: 50%;
-    background-color: #feca16;
+}
+@-o-keyframes play {
+  from {
+    background-position: 0px;
+    background-position: -440px;
   }
-
-  #content .list {
-    width: 100%;
-    display: inline-block;
-    margin: 180px 0;
-    text-align: center;
+}
+@keyframes play {
+  from {
+    background-position: 0px;
+    background-position: -440px;
   }
+}
 
-  .product-card {
-    width: 280px;
-    display: inline-block;
-    background-color: #fff;
-    position: relative;
-    z-index: 20;
-    box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.1), 0px 0px 0px 4px #09171c;
-    border-radius: 2px;
-    margin-bottom: 40px;
-    -webkit-transition: all 250ms ease-out;
-    -moz-transition: all 250ms ease-out;
-    -ms-transition: all 250ms ease-out;
-    -o-transition: all 250ms ease-out;
-    transition: all 250ms ease-out;
-    cursor: pointer;
-    border-radius: 0 50px 50px 50px;
-  }
+      </style>
 
-  .product-card span.tag {
-    position: absolute;
-    left: 0px;
-    width: 40px;
-    height: 50px;
-    line-height: 40px;
-    color: #fff;
-    font-size: 14px;
-  }
-
-  .product-card span.tag:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    z-index: -1;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 60px 60px 0 0;
-    border-color: #55acee transparent transparent transparent;
-  }
-
-  .product-card h2 {
-    width: 100%;
-    font-size: 24px;
-    font-weight: 700;
-    color: #323232;
-    padding: 0px;
-    margin: 30px 0 0;
-  }
-
-  .product-card h4 {
-    width: 100%;
-    font-size: 14px;
-    padding: 0px;
-    margin: 5px 0 0;
-    font-weight: 300;
-    letter-spacing: 4px;
-    color: #bbb;
-  }
-
-  .product-card figure {
-    width: 100%;
-    display: inline-block;
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .product-card figure img {
-    display: inline-block;
-    max-width: 80%;
-    margin: 30px 0;
-    max-height: 25vh;
-  }
-
-  .product-card .button-wrap {
-    height: 100px;
-  }
-
-  .product-card .btn {
-    border-radius: 3px;
-    padding: 15px 25px;
-    font-size: 22px;
-    text-decoration: none;
-    margin: 20px;
-    color: #fff;
-    position: relative;
-    display: inline-block;
-  }
-
-  .product-card .btn:active {
-    transform: translate(0px, 5px);
-    -webkit-transform: translate(0px, 5px);
-    box-shadow: 0px 0px 0px 0px, 0px 0px 0px 3px #09171c;
-    padding-bottom: 10px;
-  }
-
-  .product-card .blue {
-    background-color: #55acee;
-    box-shadow: inset 0px -5px 0px 0px #3C93D5, 0px 0px 0px 3px #09171c;
-  }
-
-  .product-card .blue:hover {
-    background-color: #6FC6FF;
-  }
-
-  .product-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.3), 0px 0px 0px 4px #09171c;
-  }
-
-  .flag {
-    position: relative;
-  }
-
-  #coin {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 44px;
-    height: 40px;
-    background-image: url("http://www.williammalone.com/articles/create-html5-canvas-javascript-sprite-animation/images/coin-sprite-animation-sprite-sheet.png");
-    -webkit-animation: play 1s steps(10) infinite;
-    -moz-animation: play 1s steps(10) infinite;
-    -ms-animation: play 1s steps(10) infinite;
-    -o-animation: play 1s steps(10) infinite;
-    animation: play 1s steps(10) infinite;
-  }
-
-  @-webkit-keyframes play {
-    from {
-      background-position: 0px;
-      background-position: -440px;
-    }
-  }
-
-  @-moz-keyframes play {
-    from {
-      background-position: 0px;
-      background-position: -440px;
-    }
-  }
-
-  @-ms-keyframes play {
-    from {
-      background-position: 0px;
-      background-position: -440px;
-    }
-  }
-
-  @-o-keyframes play {
-    from {
-      background-position: 0px;
-      background-position: -440px;
-    }
-  }
-
-  @keyframes play {
-    from {
-      background-position: 0px;
-      background-position: -440px;
-    }
-  }
-</style>
-
-<script>
-</script>
+      <script>
+      
+      </script>
