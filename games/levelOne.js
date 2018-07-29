@@ -15,7 +15,10 @@ var config = {
 		preload: preload,
 		create: create,
 		update: update
-	}
+	},
+	audio: {
+        disableWebAudio: true
+    }
 };
 var player;
 var platform;
@@ -31,7 +34,7 @@ function preload() {
 		frameWidth: 32,
 		frameHeight: 48
 	});
-	this.load.audio('bgm', ['assets/audio/08 - Overworld.ogg']);
+	this.load.audio('bgm', ['/audio/08 - Overworld.ogg']);
 	
 }
 
@@ -80,7 +83,7 @@ function create() {
 	this.physics.add.collider(player, platform);
 	this.physics.add.overlap(player, flag, collectFlag, null, this);
 
-	music = this.audio.add('bgm', {loop: true});	
+	music = this.sound.add('bgm', {loop: true});	
 	music.play();
 }
 
