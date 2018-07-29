@@ -10,6 +10,10 @@ app.get("/", function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/', '/index.html'));
 });
 
+app.get("/levelZero", function(req, res) {
+	res.sendFile(path.join(__dirname, '/views/levelZero', '/game.html'));
+});
+
 // Level One
 app.get("/levelOne", function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/levelOne', '/game.html'));

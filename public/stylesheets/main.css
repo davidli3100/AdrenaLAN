@@ -22,9 +22,9 @@ body {
   position:absolute;
   width:500px;
   height:100px;
-  left:22%;
+  left:20%;
   top:120px;
-  font-size: 1.5em;
+  font-size: 3em;
   color: black;
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
@@ -57,8 +57,8 @@ body {
 
 .game-container2 {
 	margin: auto;
-	width: 340px;
-	height: 340px;
+	width: 660px;
+	height: 660px;
 	display: block;
 }
 
