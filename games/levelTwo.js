@@ -1,7 +1,7 @@
 var config = {
     type: Phaser.AUTO,
-    width: 320,
-    height: 320,
+    width: 640,
+    height: 640,
     physics: {
         default: 'arcade',
         arcade: {
@@ -23,7 +23,7 @@ var count = 0;
 
 function preload ()
 {
-    this.load.image("tiles", "/sprites/scenery/roguelikeSheet_transparent.png");
+    this.load.image("tiles", "/sprites/scenery/roguelikeSheet_transparent_2x.png");
     this.load.tilemapTiledJSON("map", "/sprites/map/level2.json");
     this.load.image('dot', '/sprites/characters/reddot.png');
     this.load.spritesheet('coin', '/sprites/characters/coin_spritesheet.png', {frameWidth: 14, frameHeight: 14});
@@ -42,16 +42,16 @@ function create() {
 
     coins = this.physics.add.group();
 
-    coin1 = this.physics.add.sprite(230, 310, 'coin');
-    coin2 = this.physics.add.sprite(24, 260, 'coin');
-    coin3 = this.physics.add.sprite(311, 144, 'coin');
+    coin1 = this.physics.add.sprite(460, 620, 'coin');
+    coin2 = this.physics.add.sprite(48, 520, 'coin');
+    coin3 = this.physics.add.sprite(622, 288, 'coin');
 
     coins.add(coin1);
     coins.add(coin2);
     coins.add(coin3);
     
 
-    player = this.physics.add.sprite(12, 24, 'dot');
+    player = this.physics.add.sprite(24, 48, 'dot');
     player.setCollideWorldBounds(true);
     this.physics.add.collider(player, worldLayer);
 
@@ -78,13 +78,13 @@ function create() {
     
 function update () {
   if (cursors.left.isDown){
-      player.setVelocityX(-160);
+      player.setVelocityX(-300);
   } else if (cursors.right.isDown) {
-      player.setVelocityX(160);
+      player.setVelocityX(300);
   } else if (cursors.up.isDown) {
-      player.setVelocityY(-160);
+      player.setVelocityY(-300);
   } else if (cursors.down.isDown) {
-      player.setVelocityY(160);
+      player.setVelocityY(300);
   }
 }
 
