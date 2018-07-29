@@ -260,6 +260,7 @@ function unlock_pick_up (param) {
   console.log(param);
   if(param == "true") {
     return "Pick Up Unlocked! <br"+"> Sending you to next level...";
+    location.replace('/win');
   }
   else if(param == "false") {
     return "Pick up disabled.";

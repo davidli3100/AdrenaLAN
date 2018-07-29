@@ -35,7 +35,7 @@ app.get("/paywallTwo", function(req, res) {
 });
 
 // You Win Page
-app.get("/gameOver", function(req, res) {
+app.get("/win", function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/youWin/', '/win.html'));
 });
 
