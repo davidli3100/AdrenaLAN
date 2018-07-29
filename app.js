@@ -7,6 +7,10 @@ app.use(express.static(__dirname + "/games"));
 app.use(express.static(__dirname + "/public"));
 // ROUTES
 app.get("/", function(req, res) {
+	res.sendFile(path.join(__dirname, '/views/', '/loading.html'));
+});
+
+app.get("/index", function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/', '/index.html'));
 });
 

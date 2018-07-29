@@ -62,5 +62,16 @@ body {
 	display: block;
 }
 
+.loading {
+  margin: auto;
+  width: 400px;
+  height: 150px;
+}
+
+.logo{
+  padding-bottom: 65px;
+  padding-top: 140px;
+}
+
 
 
