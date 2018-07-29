@@ -91,9 +91,10 @@ function update () {
 function collectGold(player, coin) {
   count += 1;
   coin.disableBody(true, true);
-  if (count === 3) {
+  if (count === 2) {
     iframe = window.parent.document.querySelector('iframe');
     iframe.setAttribute('src', '/paywallTwo');
+    iframe.setAttribute('class', 'game-container');
   }
 }
 

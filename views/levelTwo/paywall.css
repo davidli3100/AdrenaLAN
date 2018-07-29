@@ -20,6 +20,7 @@ body {
     position: relative;
     border-bottom: 2px solid;
     border-color: #9a9a9a;
+    text-align:;
 }
 
 .dot {
@@ -27,8 +28,10 @@ body {
     top: 40%;
     width: 10px;
     height: 10px;
+    left:10px;
     border-radius: 10px;
     display: inline-block;
+        
 }
 
 .red {
