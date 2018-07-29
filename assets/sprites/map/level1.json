@@ -49,19 +49,25 @@
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",
- "tileheight":16,
+ "tileheight":32,
  "tilesets":[
         {
          "columns":57,
          "firstgid":1,
-         "image":"..\/scenery\/roguelikeSheet_transparent.png",
-         "imageheight":526,
-         "imagewidth":968,
+         "grid":
+            {
+             "height":16,
+             "orientation":"orthogonal",
+             "width":16
+            },
+         "image":"..\/scenery\/roguelikeSheet_transparent_2x.png",
+         "imageheight":1052,
+         "imagewidth":1936,
          "margin":0,
          "name":"background",
-         "spacing":1,
+         "spacing":2,
          "tilecount":1767,
-         "tileheight":16,
+         "tileheight":32,
          "tileproperties":
             {
              "0":
@@ -14204,9 +14210,9 @@
                  "collides":"bool"
                 }
             },
-         "tilewidth":16
+         "tilewidth":32
         }],
- "tilewidth":16,
+ "tilewidth":32,
  "type":"map",
  "version":1,
  "width":20

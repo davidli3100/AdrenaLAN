@@ -2,6 +2,64 @@ body {
 	background: #232526;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-family: 'Press Start 2P', cursive;
+}
+.heading {
+  position:absolute;
+  width:500px;
+  height:100px;
+  left:22%;
+  top:120px;
+  font-size: 3em;
+  color: black;
+  -webkit-animation-duration: 7s;
+  animation-duration: 7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.heading2 {
+  position:absolute;
+  width:500px;
+  height:100px;
+  left:22%;
+  top:120px;
+  font-size: 1.5em;
+  color: black;
+  -webkit-animation-duration: 7s;
+  animation-duration: 7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+         
+ @-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+ 
+ @keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+ 
+ .fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+ }
+
+.game-container {
+	margin: auto;
+	width: 800px;
+	height: 604px;
+	display: block;
+	position: relative;
+}
+
+.game-container2 {
+	margin: auto;
+	width: 340px;
+	height: 340px;
+	display: block;
 }
 
 
