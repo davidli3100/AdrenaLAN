@@ -1,8 +1,7 @@
 const config = {
     type: Phaser.AUTO, // Which renderer to use
-    width: 320, // Canvas width in pixels
-    height: 320, // Canvas height in pixels
-    parent: "game-container", // ID of the DOM element to add the canvas to
+    width: 640, // Canvas width in pixels
+    height: 640, // Canvas height in pixels // ID of the DOM element to add the canvas to
     scene: {
       preload: preload,
       create: create,
@@ -22,7 +21,7 @@ const config = {
   var cursors;
   
   function preload() {
-        this.load.image("tiles", "/sprites/scenery/roguelikeSheet_transparent.png")
+        this.load.image("tiles", "/sprites/scenery/roguelikeSheet_transparent_2x.png")
         this.load.tilemapTiledJSON("map", "/sprites/map/level1.json")
         //Loading atlas
         this.load.atlas("atlas", "/sprites/characters/atlas.png", "/sprites/characters/atlas.json");
@@ -39,10 +38,10 @@ const config = {
 
     worldLayer.setCollisionByProperty({collides: true});
 
-    player = this.physics.add.sprite(160, 290, "atlas", "misa-front");
+    player = this.physics.add.sprite(320, 580, "atlas", "misa-front");
     player.setCollideWorldBounds(true);
     this.physics.add.collider(player, worldLayer);
-    
+
     const anims = this.anims;
           anims.create({
             key: "misa-left-walk",
